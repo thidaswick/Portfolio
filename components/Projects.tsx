@@ -154,17 +154,6 @@ export default function Projects() {
                     <FaGithub />
                     <span>Code</span>
                   </motion.a>
-                  <motion.a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="flex items-center space-x-2 text-gray-600 hover:text-primary transition-colors"
-                  >
-                    <FaExternalLinkAlt />
-                    <span>Live Demo</span>
-                  </motion.a>
                 </div>
               </div>
             </motion.div>
