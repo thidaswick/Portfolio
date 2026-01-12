@@ -20,7 +20,7 @@ export default function Footer() {
             viewport={{ once: true }}
             className="text-gray-600 mb-4 md:mb-0 text-sm sm:text-base text-center md:text-left"
           >
-            © {new Date().getFullYear()} Portfolio. All rights reserved.
+            © {new Date().getFullYear()} Thidas. All rights reserved.
           </motion.p>
           <div className="flex space-x-4 sm:space-x-6">
             {socialLinks.map((social, index) => (
