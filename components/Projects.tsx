@@ -128,9 +128,6 @@ export default function Projects() {
               whileHover={{ y: -10 }}
               className="bg-gray-50 rounded-lg overflow-hidden border border-gray-200 hover:border-primary transition-all duration-300 shadow-sm"
             >
-              <div className="h-40 sm:h-48 bg-gradient-to-br from-primary/10 to-purple-500/10 flex items-center justify-center">
-                <div className="text-gray-500 text-xs sm:text-sm">Project Image</div>
-              </div>
               <div className="p-4 sm:p-6">
                 <div className="mb-2">
                   <span className="text-xs text-primary bg-primary/20 px-2 py-1 rounded">{project.category}</span>
