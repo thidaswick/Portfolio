@@ -47,7 +47,7 @@ export default function Hero() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
-              Hi, I'm{' '}
+              Hi, I&apos;m{' '}
               <motion.span
                 className="text-primary inline-block"
                 animate={{
@@ -144,14 +144,18 @@ export default function Hero() {
               {/* Professional image container */}
               <div className="relative w-full h-full rounded-full overflow-hidden shadow-xl border-2 border-gray-200 bg-white">
                 {!imageError ? (
-                  <img
+                  <Image
                     src={imageSrc}
                     alt="Thidas Wickramasinghe"
-                    className="w-full h-full object-cover object-center"
+                    fill
+                    className="object-cover"
+                    priority
+                    sizes="(max-width: 768px) 288px, (max-width: 1024px) 384px, 448px"
                     style={{
                       objectPosition: 'center top',
+                      borderRadius: '50%',
                     }}
-                    onError={(e) => {
+                    onError={() => {
                       // Try alternative formats if pp1.jpg fails
                       const formats = ['/assets/pp1.jpg', '/assets/pp1.jpeg', '/assets/pp1.png', '/assets/pp1.JPG']
                       const currentIndex = formats.indexOf(imageSrc)
@@ -160,9 +164,6 @@ export default function Hero() {
                       } else {
                         setImageError(true)
                       }
-                    }}
-                    onLoad={() => {
-                      console.log('Image loaded successfully:', imageSrc)
                     }}
                   />
                 ) : (

@@ -45,15 +45,15 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Hello! I'm Thidas</h3>
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">Hello! I&apos;m Thidas</h3>
             <p className="text-gray-700 text-lg mb-4">
-              I'm a passionate Information Technology undergraduate focused on Software Engineering, skilled in MERN, Android, and backend technologies. A quick learner with a proactive mindset and proven experience through a completed internship.
+              I&apos;m a passionate Information Technology undergraduate focused on Software Engineering, skilled in MERN, Android, and backend technologies. A quick learner with a proactive mindset and proven experience through a completed internship.
             </p>
             <p className="text-gray-700 text-lg mb-4">
               Currently pursuing my degree at Sri Lanka Institute of Information Technology (SLIIT), I have hands-on experience in full-stack web development, mobile app development, and working with modern technologies like React, Node.js, MongoDB, Kotlin, and Spring Boot.
             </p>
             <p className="text-gray-700 text-lg">
-              I'm driven to deliver efficient and modern software solutions. Always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+              I&apos;m driven to deliver efficient and modern software solutions. Always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
             </p>
           </motion.div>
 
