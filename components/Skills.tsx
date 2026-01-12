@@ -1,0 +1,102 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import { FaReact, FaNodeJs, FaPython, FaJs, FaJava, FaCode, FaDatabase, FaChartBar } from 'react-icons/fa'
+import { SiKotlin, SiMongodb, SiSpringboot, SiPhp, SiFigma } from 'react-icons/si'
+
+export default function Skills() {
+  const skillCategories = [
+    {
+      title: 'Frontend & Web',
+      skills: [
+        { name: 'React', icon: FaReact, level: 85 },
+        { name: 'JavaScript', icon: FaJs, level: 88 },
+        { name: 'HTML/CSS', icon: FaCode, level: 90 },
+        { name: 'MERN Stack', icon: FaCode, level: 85 },
+      ],
+    },
+    {
+      title: 'Backend & Mobile',
+      skills: [
+        { name: 'Node.js', icon: FaNodeJs, level: 85 },
+        { name: 'Spring Boot', icon: SiSpringboot, level: 80 },
+        { name: 'PHP/MySQL', icon: FaDatabase, level: 82 },
+        { name: 'Kotlin', icon: SiKotlin, level: 85 },
+        { name: 'Java', icon: FaJava, level: 88 },
+        { name: 'Python', icon: FaPython, level: 80 },
+      ],
+    },
+    {
+      title: 'Tools & Design',
+      skills: [
+        { name: 'MongoDB', icon: SiMongodb, level: 85 },
+        { name: 'Power BI', icon: FaChartBar, level: 75 },
+        { name: 'UI/UX Design', icon: SiFigma, level: 80 },
+      ],
+    },
+  ]
+
+  return (
+    <section id="skills" className="py-20 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Skills & <span className="text-primary">Technologies</span>
+          </h2>
+          <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
+        </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {skillCategories.map((category, categoryIndex) => (
+            <motion.div
+              key={category.title}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: categoryIndex * 0.2, duration: 0.8 }}
+              className="bg-white backdrop-blur-sm p-6 rounded-lg border border-gray-200 shadow-sm"
+            >
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+                {category.title}
+              </h3>
+              <div className="space-y-6">
+                {category.skills.map((skill, skillIndex) => (
+                  <motion.div
+                    key={skill.name}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: skillIndex * 0.1 }}
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center space-x-2">
+                        <skill.icon className="text-primary text-xl" />
+                        <span className="text-gray-700 font-medium">{skill.name}</span>
+                      </div>
+                      <span className="text-gray-600 text-sm">{skill.level}%</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <motion.div
+                        className="bg-primary h-2 rounded-full"
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, delay: skillIndex * 0.1 }}
+                      ></motion.div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
