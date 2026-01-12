@@ -23,8 +23,8 @@ export default function About() {
   ]
 
   return (
-    <section id="about" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section id="about" className="py-12 sm:py-16 md:py-20 bg-white">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -38,7 +38,7 @@ export default function About() {
           <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-12 md:mb-16">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}

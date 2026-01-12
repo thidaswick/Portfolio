@@ -99,8 +99,8 @@ export default function Projects() {
   ]
 
   return (
-    <section id="projects" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section id="projects" className="py-12 sm:py-16 md:py-20 bg-white">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -117,7 +117,7 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid sm:grid-cols-2 gap-6 md:gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -128,15 +128,15 @@ export default function Projects() {
               whileHover={{ y: -10 }}
               className="bg-gray-50 rounded-lg overflow-hidden border border-gray-200 hover:border-primary transition-all duration-300 shadow-sm"
             >
-              <div className="h-48 bg-gradient-to-br from-primary/10 to-purple-500/10 flex items-center justify-center">
-                <div className="text-gray-500 text-sm">Project Image</div>
+              <div className="h-40 sm:h-48 bg-gradient-to-br from-primary/10 to-purple-500/10 flex items-center justify-center">
+                <div className="text-gray-500 text-xs sm:text-sm">Project Image</div>
               </div>
-              <div className="p-6">
+              <div className="p-4 sm:p-6">
                 <div className="mb-2">
                   <span className="text-xs text-primary bg-primary/20 px-2 py-1 rounded">{project.category}</span>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{project.title}</h3>
-                <p className="text-gray-700 mb-4">{project.description}</p>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">{project.title}</h3>
+                <p className="text-sm sm:text-base text-gray-700 mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-3 mb-4">
                   {project.techIcons.map((TechIcon, techIndex) => (
                     <TechIcon key={techIndex} className="text-primary text-xl" title={project.tech[techIndex]} />

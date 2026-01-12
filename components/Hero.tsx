@@ -16,40 +16,40 @@ export default function Hero() {
   ]
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden py-16 sm:py-20">
 
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-primary/10 rounded-full blur-3xl"
         ></motion.div>
         <motion.div
           animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-purple-500/10 rounded-full blur-3xl"
         ></motion.div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 pt-20 sm:pt-24">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left side - Text content */}
           <motion.div
-            className="text-center md:text-left"
+            className="text-center md:text-left order-2 md:order-1"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
             <motion.h1
-              className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-4"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
               Hi, I&apos;m{' '}
               <motion.span
-                className="text-primary inline-block"
+                className="text-primary inline-block break-words"
                 animate={{
                   color: [
                     '#6366f1',
@@ -71,7 +71,7 @@ export default function Hero() {
               </motion.span>
             </motion.h1>
             <motion.p
-              className="text-xl md:text-2xl lg:text-3xl text-gray-700 mb-2"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-700 mb-2 sm:mb-3"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
@@ -79,7 +79,7 @@ export default function Hero() {
               Software Engineering Student & Developer
             </motion.p>
             <motion.p
-              className="text-base md:text-lg text-gray-600 mb-8"
+              className="text-sm sm:text-base md:text-lg text-gray-600 mb-6 sm:mb-8 px-2 sm:px-0"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
@@ -88,7 +88,7 @@ export default function Hero() {
             </motion.p>
 
             <motion.div
-              className="flex justify-center md:justify-start space-x-6 mb-8"
+              className="flex justify-center md:justify-start space-x-4 sm:space-x-6 mb-6 sm:mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
@@ -101,7 +101,7 @@ export default function Hero() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.2, y: -5 }}
                   whileTap={{ scale: 0.9 }}
-                  className="text-gray-600 hover:text-primary text-2xl transition-colors"
+                  className="text-gray-600 hover:text-primary text-xl sm:text-2xl transition-colors"
                   aria-label={social.label}
                 >
                   <social.icon />
@@ -119,7 +119,7 @@ export default function Hero() {
                 href="#projects"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-block px-8 py-4 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark transition-colors shadow-lg shadow-primary/50"
+                className="inline-block px-6 sm:px-8 py-3 sm:py-4 bg-primary text-white rounded-lg text-sm sm:text-base font-semibold hover:bg-primary-dark transition-colors shadow-lg shadow-primary/50"
               >
                 View My Work
               </motion.a>
@@ -128,13 +128,13 @@ export default function Hero() {
 
           {/* Right side - Profile Image */}
           <motion.div
-            className="flex justify-center items-center"
+            className="flex justify-center items-center order-1 md:order-2 mb-8 md:mb-0"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
             <motion.div
-              className="relative w-72 h-72 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem]"
+              className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
@@ -150,7 +150,7 @@ export default function Hero() {
                     fill
                     className="object-cover"
                     priority
-                    sizes="(max-width: 768px) 288px, (max-width: 1024px) 384px, 448px"
+                    sizes="(max-width: 640px) 192px, (max-width: 768px) 256px, (max-width: 1024px) 320px, 384px"
                     style={{
                       objectPosition: 'center top',
                       borderRadius: '50%',

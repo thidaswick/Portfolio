@@ -20,8 +20,8 @@ export default function Education() {
   ]
 
   return (
-    <section id="education" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section id="education" className="py-12 sm:py-16 md:py-20 bg-gray-50">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -35,7 +35,7 @@ export default function Education() {
           <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid sm:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
           {education.map((edu, index) => (
             <motion.div
               key={index}
@@ -44,15 +44,15 @@ export default function Education() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.2, duration: 0.8 }}
               whileHover={{ scale: 1.05 }}
-              className="bg-white p-6 rounded-lg border border-gray-200 hover:border-primary transition-all duration-300 shadow-sm"
+              className="bg-white p-4 sm:p-6 rounded-lg border border-gray-200 hover:border-primary transition-all duration-300 shadow-sm"
             >
-              <div className="flex items-start space-x-4">
-                <div className="text-primary text-4xl">
+              <div className="flex items-start space-x-3 sm:space-x-4">
+                <div className="text-primary text-3xl sm:text-4xl flex-shrink-0">
                   <edu.icon />
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{edu.institution}</h3>
-                  <p className="text-gray-700 mb-3">{edu.degree}</p>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 break-words">{edu.institution}</h3>
+                  <p className="text-sm sm:text-base text-gray-700 mb-3">{edu.degree}</p>
                   <div className="flex items-center text-gray-600">
                     <FaCalendarAlt className="mr-2" />
                     <span>{edu.period}</span>

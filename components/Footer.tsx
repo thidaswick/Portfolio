@@ -11,18 +11,18 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="bg-white border-t border-gray-200 py-8">
-      <div className="container mx-auto px-4">
+    <footer className="bg-white border-t border-gray-200 py-6 sm:py-8">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-gray-600 mb-4 md:mb-0"
+            className="text-gray-600 mb-4 md:mb-0 text-sm sm:text-base text-center md:text-left"
           >
             © {new Date().getFullYear()} Portfolio. All rights reserved.
           </motion.p>
-          <div className="flex space-x-6">
+          <div className="flex space-x-4 sm:space-x-6">
             {socialLinks.map((social, index) => (
               <motion.a
                 key={social.label}

@@ -16,8 +16,8 @@ export default function Experience() {
   ]
 
   return (
-    <section id="experience" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section id="experience" className="py-12 sm:py-16 md:py-20 bg-white">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -39,18 +39,18 @@ export default function Experience() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2, duration: 0.8 }}
-              className="relative pl-8 pb-12 last:pb-0"
+              className="relative pl-6 sm:pl-8 pb-8 sm:pb-12 last:pb-0"
             >
               {/* Timeline line */}
               <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-primary"></div>
               
               {/* Timeline dot */}
-              <div className="absolute left-0 top-1 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white"></div>
+              <div className="absolute left-0 top-1 transform -translate-x-1/2 w-3 h-3 sm:w-4 sm:h-4 bg-primary rounded-full border-2 sm:border-4 border-white"></div>
 
-              <div className="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-primary transition-colors shadow-sm">
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{exp.position}</h3>
+              <div className="bg-gray-50 p-4 sm:p-6 rounded-lg border border-gray-200 hover:border-primary transition-colors shadow-sm">
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-3 sm:mb-4">
+                  <div className="mb-3 md:mb-0">
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">{exp.position}</h3>
                     <div className="flex items-center text-primary mb-2">
                       <FaBriefcase className="mr-2" />
                       <span className="text-lg">{exp.company}</span>
