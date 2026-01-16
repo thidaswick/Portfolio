@@ -2,13 +2,14 @@
 
 import { motion } from 'framer-motion'
 import { FaReact, FaNodeJs, FaPython, FaJs, FaJava, FaCode, FaDatabase, FaChartBar } from 'react-icons/fa'
-import { SiKotlin, SiMongodb, SiSpringboot, SiPhp, SiFigma } from 'react-icons/si'
+import { SiKotlin, SiMongodb, SiSpringboot, SiPhp, SiFigma, SiNextdotjs } from 'react-icons/si'
 
 export default function Skills() {
   const skillCategories = [
     {
       title: 'Frontend & Web',
       skills: [
+        { name: 'Next.js', icon: SiNextdotjs, level: 85 },
         { name: 'React', icon: FaReact, level: 85 },
         { name: 'JavaScript', icon: FaJs, level: 88 },
         { name: 'HTML/CSS', icon: FaCode, level: 90 },
@@ -76,7 +77,9 @@ export default function Skills() {
                   >
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center space-x-2">
-                        <skill.icon className="text-primary text-xl" />
+                        {skill.icon && (
+                          <skill.icon className="text-primary text-xl flex-shrink-0" />
+                        )}
                         <span className="text-gray-700 font-medium">{skill.name}</span>
                       </div>
                       <span className="text-gray-600 text-sm">{skill.level}%</span>
