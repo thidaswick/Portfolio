@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useState } from 'react'
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaUser, FaCode } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaUser } from 'react-icons/fa'
 
 export default function Hero() {
   const [imageError, setImageError] = useState(false)
@@ -278,59 +278,13 @@ export default function Hero() {
           </motion.div>
 
           {/* Right side - Profile Image */}
-          <motion.div
-            className="flex justify-center items-center order-1 md:order-2 mb-8 md:mb-0"
-            initial={{ opacity: 0, x: 50, rotate: -10 }}
-            animate={{ opacity: 1, x: 0, rotate: 0 }}
-            transition={{ delay: 0.5, duration: 1, type: "spring", stiffness: 100 }}
-          >
-            <motion.div
-              className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96"
-              whileHover={{ 
-                scale: 1.05,
-                rotate: [0, -5, 5, -5, 0],
-                transition: { duration: 0.5 }
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              {/* Animated background glow */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-primary/10 to-purple-500/10 rounded-full blur-2xl -z-10"
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.3, 0.5, 0.3],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              ></motion.div>
-              
-              {/* Floating code icon decoration */}
-              <motion.div
-                className="absolute -top-4 -right-4 bg-primary text-white p-3 rounded-full shadow-lg z-10"
-                animate={{
-                  y: [0, -10, 0],
-                  rotate: [0, 10, -10, 0],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                whileHover={{ scale: 1.1, rotate: 360 }}
-              >
-                <FaCode className="text-lg" />
-              </motion.div>
+          <div className="flex justify-center items-center order-1 md:order-2 mb-8 md:mb-0">
+            <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+              {/* Static background glow */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-purple-500/10 rounded-full blur-2xl -z-10"></div>
               
               {/* Professional image container */}
-              <motion.div
-                className="relative w-full h-full rounded-full overflow-hidden shadow-xl border-2 border-gray-200 bg-white"
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ delay: 0.7, duration: 0.8, type: "spring" }}
-              >
+              <div className="relative w-full h-full rounded-full overflow-hidden shadow-xl border-2 border-gray-200 bg-white">
                 {!imageError ? (
                   <Image
                     src={imageSrc}
@@ -359,41 +313,15 @@ export default function Hero() {
                     <FaUser className="text-6xl md:text-7xl lg:text-8xl text-gray-400" />
                   </div>
                 )}
-              </motion.div>
+              </div>
               
-              {/* Animated border ring */}
-              <motion.div
-                className="absolute inset-0 rounded-full border-4 border-primary/20"
-                animate={{
-                  borderColor: [
-                    'rgba(99, 102, 241, 0.2)',
-                    'rgba(139, 92, 246, 0.3)',
-                    'rgba(168, 85, 247, 0.2)',
-                    'rgba(99, 102, 241, 0.2)',
-                  ],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
+              {/* Static border ring */}
+              <div className="absolute inset-0 rounded-full border-4 border-primary/20"></div>
               
-              {/* Professional shadow effect */}
-              <motion.div
-                className="absolute -inset-4 bg-gradient-to-br from-primary/5 to-transparent rounded-full blur-xl -z-20"
-                animate={{
-                  scale: [1, 1.1, 1],
-                  opacity: [0.3, 0.5, 0.3],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              ></motion.div>
-            </motion.div>
-          </motion.div>
+              {/* Static shadow effect */}
+              <div className="absolute -inset-4 bg-gradient-to-br from-primary/5 to-transparent rounded-full blur-xl -z-20"></div>
+            </div>
+          </div>
         </div>
       </div>
 
