@@ -1,13 +1,24 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaUser } from 'react-icons/fa'
 
 export default function Hero() {
   const [imageError, setImageError] = useState(false)
   const [imageSrc, setImageSrc] = useState('/assets/pp1.jpg')
+  const [isMobile, setIsMobile] = useState(false)
+  const shouldReduceMotion = useReducedMotion()
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
   
   const socialLinks = [
     { icon: FaGithub, href: 'https://github.com/thidaswick', label: 'GitHub' },
@@ -18,57 +29,68 @@ export default function Hero() {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden py-16 sm:py-20">
 
-      {/* Animated background elements */}
+      {/* Animated background elements - reduced on mobile */}
       <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-primary/10 rounded-full blur-3xl"
-        ></motion.div>
-        <motion.div
-          animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-1/4 right-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-purple-500/10 rounded-full blur-3xl"
-        ></motion.div>
+        {!shouldReduceMotion && !isMobile ? (
+          <>
+            <motion.div
+              animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-primary/10 rounded-full blur-3xl"
+            ></motion.div>
+            <motion.div
+              animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+              className="absolute bottom-1/4 right-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-purple-500/10 rounded-full blur-3xl"
+            ></motion.div>
+          </>
+        ) : (
+          <>
+            <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-primary/10 rounded-full blur-2xl opacity-20"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-purple-500/10 rounded-full blur-2xl opacity-20"></div>
+          </>
+        )}
       </div>
 
-      {/* Floating code elements - showcasing development skills */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {['< />', '{ }', '[ ]', '()', '=>', 'const'].map((symbol, i) => (
-          <motion.div
-            key={i}
-            className="absolute text-primary/5 text-2xl md:text-4xl font-mono font-bold"
-            initial={{
-              x: `${20 + i * 15}%`,
-              y: `${15 + i * 12}%`,
-              opacity: 0,
-            }}
-            animate={{
-              y: [`${15 + i * 12}%`, `${25 + i * 8}%`, `${15 + i * 12}%`],
-              x: [`${20 + i * 15}%`, `${25 + i * 10}%`, `${20 + i * 15}%`],
-              opacity: [0, 0.08, 0],
-              rotate: [0, 180, 360],
-            }}
-            transition={{
-              duration: 15 + i * 2,
-              repeat: Infinity,
-              delay: i * 1.5,
-              ease: "easeInOut",
-            }}
-          >
-            {symbol}
-          </motion.div>
-        ))}
-      </div>
+      {/* Floating code elements - reduced on mobile for performance */}
+      {!isMobile && !shouldReduceMotion && (
+        <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
+          {['< />', '{ }', '[ ]'].slice(0, isMobile ? 2 : 3).map((symbol, i) => (
+            <motion.div
+              key={i}
+              className="absolute text-primary/5 text-2xl md:text-4xl font-mono font-bold"
+              initial={{
+                x: `${20 + i * 15}%`,
+                y: `${15 + i * 12}%`,
+                opacity: 0,
+              }}
+              animate={{
+                y: [`${15 + i * 12}%`, `${25 + i * 8}%`, `${15 + i * 12}%`],
+                x: [`${20 + i * 15}%`, `${25 + i * 10}%`, `${20 + i * 15}%`],
+                opacity: [0, 0.08, 0],
+                rotate: [0, 180, 360],
+              }}
+              transition={{
+                duration: 15 + i * 2,
+                repeat: Infinity,
+                delay: i * 1.5,
+                ease: "easeInOut",
+              }}
+            >
+              {symbol}
+            </motion.div>
+          ))}
+        </div>
+      )}
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10 pt-20 sm:pt-24">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left side - Text content */}
           <motion.div
             className="text-center md:text-left order-2 md:order-1"
-            initial={{ opacity: 0, x: -50 }}
+            initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: shouldReduceMotion ? 0.3 : 0.8 }}
           >
             {/* Animated greeting with typewriter effect */}
             <motion.div
@@ -96,7 +118,7 @@ export default function Hero() {
               I&apos;m{' '}
               <motion.span
                 className="text-primary inline-block break-words relative"
-                animate={{
+                animate={shouldReduceMotion ? {} : {
                   color: [
                     '#6366f1',
                     '#8b5cf6',
@@ -107,7 +129,7 @@ export default function Hero() {
                     '#6366f1',
                   ],
                 }}
-                transition={{
+                transition={shouldReduceMotion ? {} : {
                   duration: 3,
                   repeat: Infinity,
                   ease: 'easeInOut',
@@ -115,17 +137,19 @@ export default function Hero() {
               >
                 <motion.span
                   className="relative"
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
                   Thidas Wickramasinghe
                 </motion.span>
-                {/* Animated cursor effect */}
-                <motion.span
-                  className="inline-block w-0.5 h-8 md:h-12 bg-primary ml-1"
-                  animate={{ opacity: [1, 0, 1] }}
-                  transition={{ duration: 1, repeat: Infinity }}
-                />
+                {/* Animated cursor effect - disabled on mobile */}
+                {!shouldReduceMotion && !isMobile && (
+                  <motion.span
+                    className="inline-block w-0.5 h-8 md:h-12 bg-primary ml-1"
+                    animate={{ opacity: [1, 0, 1] }}
+                    transition={{ duration: 1, repeat: Infinity }}
+                  />
+                )}
               </motion.span>
             </motion.h1>
             <motion.div
@@ -208,14 +232,14 @@ export default function Hero() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  initial={{ opacity: 0, scale: 0, rotate: -180 }}
-                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                  initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0, rotate: -180 }}
+                  animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, scale: 1, rotate: 0 }}
                   transition={{
-                    delay: 1.5 + index * 0.1,
+                    delay: shouldReduceMotion ? 0 : 1.5 + index * 0.1,
                     type: "spring",
                     stiffness: 200,
                   }}
-                  whileHover={{ 
+                  whileHover={shouldReduceMotion || isMobile ? {} : { 
                     scale: 1.2, 
                     y: -5,
                     rotate: 360,
@@ -256,12 +280,16 @@ export default function Hero() {
                 className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-primary text-white rounded-lg text-sm sm:text-base font-semibold hover:bg-primary-dark transition-all shadow-lg shadow-primary/50"
               >
                 <span>View My Work</span>
-                <motion.span
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                >
-                  →
-                </motion.span>
+                {!shouldReduceMotion && !isMobile ? (
+                  <motion.span
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    →
+                  </motion.span>
+                ) : (
+                  <span>→</span>
+                )}
               </motion.a>
               <motion.a
                 href="#contact"
@@ -280,8 +308,8 @@ export default function Hero() {
           {/* Right side - Profile Image */}
           <div className="flex justify-center items-center order-1 md:order-2 mb-8 md:mb-0">
             <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-              {/* Static background glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-purple-500/10 rounded-full blur-2xl -z-10"></div>
+              {/* Static background glow - reduced blur on mobile */}
+              <div className={`absolute inset-0 bg-gradient-to-br from-primary/10 to-purple-500/10 rounded-full ${isMobile ? 'blur-xl' : 'blur-2xl'} -z-10`}></div>
               
               {/* Professional image container */}
               <div className="relative w-full h-full rounded-full overflow-hidden shadow-xl border-2 border-gray-200 bg-white">
@@ -318,23 +346,31 @@ export default function Hero() {
               {/* Static border ring */}
               <div className="absolute inset-0 rounded-full border-4 border-primary/20"></div>
               
-              {/* Static shadow effect */}
-              <div className="absolute -inset-4 bg-gradient-to-br from-primary/5 to-transparent rounded-full blur-xl -z-20"></div>
+              {/* Static shadow effect - reduced on mobile */}
+              <div className={`absolute -inset-4 bg-gradient-to-br from-primary/5 to-transparent rounded-full ${isMobile ? 'blur-lg' : 'blur-xl'} -z-20`}></div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-      >
-        <div className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-gray-600 rounded-full mt-2"></div>
+      {/* Scroll indicator - static on mobile */}
+      {shouldReduceMotion || isMobile ? (
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+          <div className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-gray-600 rounded-full mt-2"></div>
+          </div>
         </div>
-      </motion.div>
+      ) : (
+        <motion.div
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 2 }}
+        >
+          <div className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-gray-600 rounded-full mt-2"></div>
+          </div>
+        </motion.div>
+      )}
     </section>
   )
 }
