@@ -10,10 +10,6 @@ const nextConfig = {
   poweredByHeader: false,
   // Optimize bundle size
   swcMinify: true,
-  // Reduce JavaScript execution time
-  experimental: {
-    optimizeCss: true,
-  },
 }
 
 module.exports = nextConfig

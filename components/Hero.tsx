@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaUser } from 'react-icons/fa'
@@ -9,15 +9,59 @@ export default function Hero() {
   const [imageError, setImageError] = useState(false)
   const [imageSrc, setImageSrc] = useState('/assets/pp1.jpg')
   const [isMobile, setIsMobile] = useState(false)
-  const shouldReduceMotion = useReducedMotion()
+  const [shouldReduceMotion, setShouldReduceMotion] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    // Mark as mounted to prevent hydration mismatches
+    setMounted(true)
+    
+    // Only run on client side
+    if (typeof window === 'undefined') return
+    
+    // Check if we're on mobile
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768)
     }
+    
+    // Check for reduced motion preference
+    const checkReducedMotion = () => {
+      try {
+        if (window.matchMedia) {
+          const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+          setShouldReduceMotion(mediaQuery.matches)
+          
+          // Listen for changes (modern browsers)
+          if (mediaQuery.addEventListener) {
+            const handleChange = (e: MediaQueryListEvent) => {
+              setShouldReduceMotion(e.matches)
+            }
+            mediaQuery.addEventListener('change', handleChange)
+            return () => {
+              if (mediaQuery.removeEventListener) {
+                mediaQuery.removeEventListener('change', handleChange)
+              }
+            }
+          }
+        }
+      } catch (error) {
+        // Fallback if matchMedia is not supported
+        setShouldReduceMotion(false)
+      }
+      return undefined
+    }
+    
     checkMobile()
+    const cleanupReducedMotion = checkReducedMotion()
+    
     window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile)
+      if (cleanupReducedMotion) {
+        cleanupReducedMotion()
+      }
+    }
   }, [])
   
   const socialLinks = [
@@ -31,7 +75,7 @@ export default function Hero() {
 
       {/* Animated background elements - reduced on mobile */}
       <div className="absolute inset-0 overflow-hidden">
-        {!shouldReduceMotion && !isMobile ? (
+        {mounted && !shouldReduceMotion && !isMobile ? (
           <>
             <motion.div
               animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
@@ -53,7 +97,7 @@ export default function Hero() {
       </div>
 
       {/* Floating code elements - reduced on mobile for performance */}
-      {!isMobile && !shouldReduceMotion && (
+      {mounted && !isMobile && !shouldReduceMotion && (
         <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
           {['< />', '{ }', '[ ]'].slice(0, isMobile ? 2 : 3).map((symbol, i) => (
             <motion.div
@@ -88,9 +132,9 @@ export default function Hero() {
           {/* Left side - Text content */}
           <motion.div
             className="text-center md:text-left order-2 md:order-1"
-            initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: -50 }}
+            initial={mounted && shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: shouldReduceMotion ? 0.3 : 0.8 }}
+            transition={{ duration: mounted && shouldReduceMotion ? 0.3 : 0.8 }}
           >
             {/* Animated greeting with typewriter effect */}
             <motion.div
@@ -118,7 +162,7 @@ export default function Hero() {
               I&apos;m{' '}
               <motion.span
                 className="text-primary inline-block break-words relative"
-                animate={shouldReduceMotion ? {} : {
+                animate={mounted && shouldReduceMotion ? { color: '#6366f1' } : {
                   color: [
                     '#6366f1',
                     '#8b5cf6',
@@ -129,7 +173,7 @@ export default function Hero() {
                     '#6366f1',
                   ],
                 }}
-                transition={shouldReduceMotion ? {} : {
+                transition={mounted && shouldReduceMotion ? { duration: 0 } : {
                   duration: 3,
                   repeat: Infinity,
                   ease: 'easeInOut',
@@ -137,13 +181,13 @@ export default function Hero() {
               >
                 <motion.span
                   className="relative"
-                  whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
+                  whileHover={mounted && shouldReduceMotion ? {} : { scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
                   Thidas Wickramasinghe
                 </motion.span>
                 {/* Animated cursor effect - disabled on mobile */}
-                {!shouldReduceMotion && !isMobile && (
+                {mounted && !shouldReduceMotion && !isMobile && (
                   <motion.span
                     className="inline-block w-0.5 h-8 md:h-12 bg-primary ml-1"
                     animate={{ opacity: [1, 0, 1] }}
@@ -232,14 +276,14 @@ export default function Hero() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0, rotate: -180 }}
-                  animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, scale: 1, rotate: 0 }}
+                  initial={mounted && shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0, rotate: -180 }}
+                  animate={mounted && shouldReduceMotion ? { opacity: 1 } : { opacity: 1, scale: 1, rotate: 0 }}
                   transition={{
-                    delay: shouldReduceMotion ? 0 : 1.5 + index * 0.1,
+                    delay: mounted && shouldReduceMotion ? 0 : 1.5 + index * 0.1,
                     type: "spring",
                     stiffness: 200,
                   }}
-                  whileHover={shouldReduceMotion || isMobile ? {} : { 
+                  whileHover={mounted && (shouldReduceMotion || isMobile) ? {} : { 
                     scale: 1.2, 
                     y: -5,
                     rotate: 360,
@@ -280,7 +324,7 @@ export default function Hero() {
                 className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-primary text-white rounded-lg text-sm sm:text-base font-semibold hover:bg-primary-dark transition-all shadow-lg shadow-primary/50"
               >
                 <span>View My Work</span>
-                {!shouldReduceMotion && !isMobile ? (
+                {mounted && !shouldReduceMotion && !isMobile ? (
                   <motion.span
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
@@ -354,7 +398,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator - static on mobile */}
-      {shouldReduceMotion || isMobile ? (
+      {mounted && (shouldReduceMotion || isMobile) ? (
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
           <div className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center">
             <div className="w-1 h-3 bg-gray-600 rounded-full mt-2"></div>
