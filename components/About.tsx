@@ -32,7 +32,7 @@ export default function About() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             About <span className="text-primary">Me</span>
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
@@ -45,7 +45,7 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Hello! I&apos;m Thidas</h3>
+            <h3 className="text-2xl lg:text-2xl font-bold text-gray-900 mb-4">Hello! I&apos;m Thidas</h3>
             <p className="text-gray-700 text-lg mb-4">
               I&apos;m a passionate Information Technology undergraduate focused on Software Engineering, skilled in MERN, Android, and backend technologies. A quick learner with a proactive mindset and proven experience through a completed internship.
             </p>
@@ -74,7 +74,7 @@ export default function About() {
                 whileHover={{ scale: 1.05 }}
                 className="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-primary transition-colors shadow-sm"
               >
-                <feature.icon className="text-primary text-3xl mb-4" />
+                <feature.icon className="text-primary text-2xl lg:text-2xl mb-4" />
                 <h4 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h4>
                 <p className="text-gray-600">{feature.description}</p>
               </motion.div>

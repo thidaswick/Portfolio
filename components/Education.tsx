@@ -29,7 +29,7 @@ export default function Education() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             <span className="text-primary">Education</span>
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
@@ -47,7 +47,7 @@ export default function Education() {
               className="bg-white p-4 sm:p-6 rounded-lg border border-gray-200 hover:border-primary transition-all duration-300 shadow-sm"
             >
               <div className="flex items-start space-x-3 sm:space-x-4">
-                <div className="text-primary text-3xl sm:text-4xl flex-shrink-0">
+                <div className="text-primary text-2xl sm:text-3xl lg:text-2xl flex-shrink-0">
                   <edu.icon />
                 </div>
                 <div className="flex-1 min-w-0">

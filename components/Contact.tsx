@@ -57,7 +57,7 @@ export default function Contact() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Get In <span className="text-primary">Touch</span>
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
@@ -86,7 +86,7 @@ export default function Contact() {
                   whileHover={{ x: 10 }}
                   className="flex items-center space-x-4 p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors shadow-sm"
                 >
-                  <div className="text-primary text-2xl">
+                  <div className="text-primary text-xl">
                     <info.icon />
                   </div>
                   <div>

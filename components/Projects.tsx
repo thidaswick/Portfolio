@@ -108,7 +108,7 @@ export default function Projects() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Featured <span className="text-primary">Projects</span>
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
@@ -136,7 +136,7 @@ export default function Projects() {
                 <p className="text-sm sm:text-base text-gray-700 mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-3 mb-4">
                   {project.techIcons.map((TechIcon, techIndex) => (
-                    <TechIcon key={techIndex} className="text-primary text-xl" title={project.tech[techIndex]} />
+                    <TechIcon key={techIndex} className="text-primary text-lg" title={project.tech[techIndex]} />
                   ))}
                   {project.tech.filter((_, i) => i >= project.techIcons.length).map((tech, techIndex) => (
                     <span key={techIndex} className="text-primary text-sm font-medium">{tech}</span>

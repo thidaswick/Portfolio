@@ -47,7 +47,7 @@ export default function Skills() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Skills & <span className="text-primary">Technologies</span>
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
@@ -63,7 +63,7 @@ export default function Skills() {
               transition={{ delay: categoryIndex * 0.2, duration: 0.8 }}
               className="bg-white backdrop-blur-sm p-6 rounded-lg border border-gray-200 shadow-sm"
             >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+              <h3 className="text-xl lg:text-xl font-bold text-gray-900 mb-6 text-center">
                 {category.title}
               </h3>
               <div className="space-y-6">
@@ -78,7 +78,7 @@ export default function Skills() {
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center space-x-2">
                         {skill.icon && (
-                          <skill.icon className="text-primary text-xl flex-shrink-0" />
+                          <skill.icon className="text-primary text-lg flex-shrink-0" />
                         )}
                         <span className="text-gray-700 font-medium">{skill.name}</span>
                       </div>

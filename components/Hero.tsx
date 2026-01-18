@@ -144,7 +144,7 @@ export default function Hero() {
               transition={{ delay: 0.1, duration: 0.6 }}
             >
               <motion.span
-                className="text-lg sm:text-xl md:text-2xl text-gray-600 font-medium"
+                className="text-lg sm:text-xl md:text-xl lg:text-xl text-gray-600 font-medium"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
@@ -154,7 +154,7 @@ export default function Hero() {
             </motion.div>
 
             <motion.h1
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
@@ -189,7 +189,7 @@ export default function Hero() {
                 {/* Animated cursor effect - disabled on mobile */}
                 {mounted && !shouldReduceMotion && !isMobile && (
                   <motion.span
-                    className="inline-block w-0.5 h-8 md:h-12 bg-primary ml-1"
+                    className="inline-block w-0.5 h-6 md:h-8 lg:h-10 bg-primary ml-1"
                     animate={{ opacity: [1, 0, 1] }}
                     transition={{ duration: 1, repeat: Infinity }}
                   />
@@ -203,7 +203,7 @@ export default function Hero() {
               transition={{ delay: 0.6, duration: 0.6 }}
             >
               <motion.p
-                className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-700 inline-flex items-center gap-2 flex-wrap justify-center md:justify-start"
+                className="text-lg sm:text-xl md:text-xl lg:text-2xl text-gray-700 inline-flex items-center gap-2 flex-wrap justify-center md:justify-start"
               >
                 <motion.span
                   initial={{ opacity: 0, x: -20 }}
@@ -290,7 +290,7 @@ export default function Hero() {
                     transition: { duration: 0.5 }
                   }}
                   whileTap={{ scale: 0.9 }}
-                  className="text-gray-600 hover:text-primary text-xl sm:text-2xl transition-colors relative group"
+                  className="text-gray-600 hover:text-primary text-lg sm:text-xl lg:text-xl transition-colors relative group"
                   aria-label={social.label}
                 >
                   <social.icon />
