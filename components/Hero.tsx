@@ -71,7 +71,7 @@ export default function Hero() {
   ]
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden py-16 sm:py-20">
+    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 relative overflow-hidden py-16 sm:py-20">
 
       {/* Animated background elements - reduced on mobile */}
       <div className="absolute inset-0 overflow-hidden">
@@ -144,7 +144,7 @@ export default function Hero() {
               transition={{ delay: 0.1, duration: 0.6 }}
             >
               <motion.span
-                className="text-lg sm:text-xl md:text-xl lg:text-xl text-gray-600 font-medium"
+                className="text-lg sm:text-xl md:text-xl lg:text-xl text-gray-600 dark:text-gray-400 font-medium"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
@@ -154,7 +154,7 @@ export default function Hero() {
             </motion.div>
 
             <motion.h1
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4 leading-tight"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
@@ -203,7 +203,7 @@ export default function Hero() {
               transition={{ delay: 0.6, duration: 0.6 }}
             >
               <motion.p
-                className="text-lg sm:text-xl md:text-xl lg:text-2xl text-gray-700 inline-flex items-center gap-2 flex-wrap justify-center md:justify-start"
+                className="text-lg sm:text-xl md:text-xl lg:text-2xl text-gray-700 dark:text-gray-300 inline-flex items-center gap-2 flex-wrap justify-center md:justify-start"
               >
                 <motion.span
                   initial={{ opacity: 0, x: -20 }}
@@ -256,7 +256,7 @@ export default function Hero() {
             </motion.div>
 
             <motion.p
-              className="text-sm sm:text-base md:text-lg text-gray-600 mb-6 sm:mb-8 px-2 sm:px-0"
+              className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 mb-6 sm:mb-8 px-2 sm:px-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.6 }}
@@ -290,7 +290,7 @@ export default function Hero() {
                     transition: { duration: 0.5 }
                   }}
                   whileTap={{ scale: 0.9 }}
-                  className="text-gray-600 hover:text-primary text-lg sm:text-xl lg:text-xl transition-colors relative group"
+                  className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary text-lg sm:text-xl lg:text-xl transition-colors relative group"
                   aria-label={social.label}
                 >
                   <social.icon />
@@ -321,7 +321,7 @@ export default function Hero() {
                   boxShadow: "0 10px 30px rgba(99, 102, 241, 0.4)"
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-primary text-white rounded-lg text-sm sm:text-base font-semibold hover:bg-primary-dark transition-all shadow-lg shadow-primary/50"
+                className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-primary text-white rounded-lg text-sm sm:text-base font-semibold hover:bg-primary-dark transition-all shadow-lg shadow-primary/50 dark:shadow-primary/30"
               >
                 <span>View My Work</span>
                 {mounted && !shouldReduceMotion && !isMobile ? (
@@ -342,7 +342,7 @@ export default function Hero() {
                 transition={{ delay: 2, type: "spring", stiffness: 200 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white text-primary border-2 border-primary rounded-lg text-sm sm:text-base font-semibold hover:bg-primary/5 transition-all shadow-md"
+                className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white dark:bg-slate-800 text-primary dark:text-primary border-2 border-primary rounded-lg text-sm sm:text-base font-semibold hover:bg-primary/5 dark:hover:bg-primary/10 transition-all shadow-md"
               >
                 <span>Get In Touch</span>
               </motion.a>
@@ -356,7 +356,7 @@ export default function Hero() {
               <div className={`absolute inset-0 bg-gradient-to-br from-primary/10 to-purple-500/10 rounded-full ${isMobile ? 'blur-xl' : 'blur-2xl'} -z-10`}></div>
               
               {/* Professional image container */}
-              <div className="relative w-full h-full rounded-full overflow-hidden shadow-xl border-2 border-gray-200 bg-white">
+                   <div className="relative w-full h-full rounded-full overflow-hidden shadow-xl border-2 border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800">
                 {!imageError ? (
                   <Image
                     src={imageSrc}
@@ -381,14 +381,14 @@ export default function Hero() {
                     }}
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 rounded-full">
+                       <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-slate-700 dark:to-slate-800 rounded-full">
                     <FaUser className="text-6xl md:text-7xl lg:text-8xl text-gray-400" />
                   </div>
                 )}
               </div>
               
               {/* Static border ring */}
-              <div className="absolute inset-0 rounded-full border-4 border-primary/20"></div>
+                   <div className="absolute inset-0 rounded-full border-4 border-primary/20 dark:border-primary/30"></div>
               
               {/* Static shadow effect - reduced on mobile */}
               <div className={`absolute -inset-4 bg-gradient-to-br from-primary/5 to-transparent rounded-full ${isMobile ? 'blur-lg' : 'blur-xl'} -z-20`}></div>
@@ -406,7 +406,7 @@ export default function Hero() {
         </div>
       ) : (
         <motion.div
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+             className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-gray-600 dark:text-gray-400"
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
         >

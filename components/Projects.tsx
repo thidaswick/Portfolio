@@ -99,7 +99,7 @@ export default function Projects() {
   ]
 
   return (
-    <section id="projects" className="py-12 sm:py-16 md:py-20 bg-white">
+    <section id="projects" className="py-12 sm:py-16 md:py-20 bg-white dark:bg-slate-900">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -108,7 +108,7 @@ export default function Projects() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Featured <span className="text-primary">Projects</span>
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
@@ -126,14 +126,14 @@ export default function Projects() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.2, duration: 0.8 }}
               whileHover={{ y: -10 }}
-              className="bg-gray-50 rounded-lg overflow-hidden border border-gray-200 hover:border-primary transition-all duration-300 shadow-sm"
+              className="bg-gray-50 dark:bg-slate-800 rounded-lg overflow-hidden border border-gray-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary transition-all duration-300 shadow-sm"
             >
               <div className="p-4 sm:p-6">
                 <div className="mb-2">
                   <span className="text-xs text-primary bg-primary/20 px-2 py-1 rounded">{project.category}</span>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">{project.title}</h3>
-                <p className="text-sm sm:text-base text-gray-700 mb-4">{project.description}</p>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">{project.title}</h3>
+                <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-3 mb-4">
                   {project.techIcons.map((TechIcon, techIndex) => (
                     <TechIcon key={techIndex} className="text-primary text-lg" title={project.tech[techIndex]} />
@@ -149,7 +149,7 @@ export default function Projects() {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className="flex items-center space-x-2 text-gray-600 hover:text-primary transition-colors"
+                    className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
                   >
                     <FaGithub />
                     <span>Code</span>

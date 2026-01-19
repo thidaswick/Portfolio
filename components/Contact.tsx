@@ -48,7 +48,7 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" className="py-12 sm:py-16 md:py-20 bg-gray-50">
+    <section id="contact" className="py-12 sm:py-16 md:py-20 bg-gray-50 dark:bg-slate-900">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -57,11 +57,11 @@ export default function Contact() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Get In <span className="text-primary">Touch</span>
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
           </p>
         </motion.div>
@@ -73,7 +73,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Contact Information</h3>
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
                 <motion.a
@@ -84,14 +84,14 @@ export default function Contact() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ x: 10 }}
-                  className="flex items-center space-x-4 p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors shadow-sm"
+                  className="flex items-center space-x-4 p-4 bg-white dark:bg-slate-800 rounded-lg border border-gray-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary transition-colors shadow-sm"
                 >
                   <div className="text-primary text-xl">
                     <info.icon />
                   </div>
                   <div>
-                    <h4 className="text-gray-600 text-sm">{info.title}</h4>
-                    <p className="text-gray-900">{info.value}</p>
+                    <h4 className="text-gray-600 dark:text-gray-400 text-sm">{info.title}</h4>
+                    <p className="text-gray-900 dark:text-white">{info.value}</p>
                   </div>
                 </motion.a>
               ))}
@@ -107,7 +107,7 @@ export default function Contact() {
             className="space-y-6"
           >
             <div>
-              <label htmlFor="name" className="block text-gray-700 mb-2">
+              <label htmlFor="name" className="block text-gray-700 dark:text-gray-300 mb-2">
                 Your Name
               </label>
               <input
@@ -117,7 +117,7 @@ export default function Contact() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:border-primary transition-colors"
+                className="w-full px-4 py-3 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:border-primary transition-colors"
                 placeholder="John Doe"
               />
             </div>
@@ -132,7 +132,7 @@ export default function Contact() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:border-primary transition-colors"
+                className="w-full px-4 py-3 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:border-primary transition-colors"
                 placeholder="john@example.com"
               />
             </div>
@@ -147,7 +147,7 @@ export default function Contact() {
                 onChange={handleChange}
                 required
                 rows={6}
-                className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:border-primary transition-colors resize-none"
+                className="w-full px-4 py-3 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:border-primary transition-colors resize-none"
                 placeholder="Hello, I'd like to discuss..."
               ></textarea>
             </div>
