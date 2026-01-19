@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaCode, FaLaptopCode, FaMobileAlt } from 'react-icons/fa'
+import { FaCode, FaLaptopCode, FaMobileAlt, FaRobot } from 'react-icons/fa'
 
 export default function About() {
   const features = [
@@ -19,6 +19,11 @@ export default function About() {
       icon: FaLaptopCode,
       title: 'UI/UX Design',
       description: 'Designing intuitive interfaces with Figma and modern design principles',
+    },
+    {
+      icon: FaRobot,
+      title: 'AI-Assisted Development',
+      description: 'Leveraging AI tools like ChatGPT and GitHub Copilot to enhance productivity, code quality, and problem-solving efficiency',
     },
   ]
 
@@ -62,7 +67,7 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="grid grid-cols-1 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
           >
             {features.map((feature, index) => (
               <motion.div

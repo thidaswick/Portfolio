@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaReact, FaNodeJs, FaPython, FaJs, FaJava, FaCode, FaDatabase, FaChartBar } from 'react-icons/fa'
+import { FaReact, FaNodeJs, FaPython, FaJs, FaJava, FaCode, FaDatabase, FaChartBar, FaRobot } from 'react-icons/fa'
 import { SiKotlin, SiMongodb, SiSpringboot, SiPhp, SiFigma, SiNextdotjs } from 'react-icons/si'
 
 export default function Skills() {
@@ -33,6 +33,7 @@ export default function Skills() {
         { name: 'MongoDB', icon: SiMongodb, level: 85 },
         { name: 'Power BI', icon: FaChartBar, level: 75 },
         { name: 'UI/UX Design', icon: SiFigma, level: 80 },
+        { name: 'AI Tools', icon: FaRobot, level: 85 },
       ],
     },
   ]
