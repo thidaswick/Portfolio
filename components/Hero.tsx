@@ -210,7 +210,7 @@ export default function Hero() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.7 }}
                 >
-                  Software Engineering Student
+                  Undergraduate
                 </motion.span>
                 <motion.span
                   className="text-primary"

@@ -10,7 +10,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: 'Thidas Wickramasinghe - Portfolio',
-  description: 'Software Engineering Student & Developer | MERN Stack | Android Development | UI/UX Design',
+  description: 'Undergraduate & Developer | MERN Stack | Android Development | UI/UX Design',
 }
 
 export const viewport = {
