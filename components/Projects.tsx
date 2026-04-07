@@ -12,7 +12,7 @@ export default function Projects() {
       tech: ['MERN Stack'],
       techIcons: [FaCode],
       category: 'Systems & Management (Internship)',
-      github: '#',
+      github: null,
       demo: '#',
     },
     {
@@ -21,7 +21,7 @@ export default function Projects() {
       tech: ['MERN Stack'],
       techIcons: [FaCode],
       category: 'Systems & Management (Internship)',
-      github: '#',
+      github: 'https://github.com/thidaswick/AgencySystem.git',
       demo: '#',
     },
     {
@@ -30,7 +30,7 @@ export default function Projects() {
       tech: ['PHP', 'MySQL', 'JavaScript'],
       techIcons: [SiPhp, FaDatabase, SiJavascript],
       category: 'Systems & Management (Internship)',
-      github: '#',
+      github: 'https://github.com/thidaswick/Raxwo-Company-System.git',
       demo: '#',
     },
     {
@@ -39,7 +39,7 @@ export default function Projects() {
       tech: ['Java', 'Spring Boot'],
       techIcons: [FaJava, SiSpringboot],
       category: 'E-Learning & Education (University)',
-      github: '#',
+      github: 'https://github.com/Izu99/paf-skillshare',
       demo: '#',
     },
     {
@@ -66,7 +66,7 @@ export default function Projects() {
       tech: ['MERN', 'Python'],
       techIcons: [FaCode, SiPython],
       category: 'Agriculture & Smart Solutions (University)',
-      github: '#',
+      github: 'https://github.com/thidaswick/Ceylone-Harvest.git',
       demo: '#',
     },
     {
@@ -75,7 +75,7 @@ export default function Projects() {
       tech: ['MERN Stack'],
       techIcons: [FaCode],
       category: 'Store & Business Management (University)',
-      github: '#',
+      github: 'https://github.com/thidaswick/WebProject',
       demo: '#',
     },
     {
@@ -118,17 +118,14 @@ export default function Projects() {
         </motion.div>
 
         <div className="grid sm:grid-cols-2 gap-6 md:gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2, duration: 0.8 }}
-              whileHover={{ y: -10 }}
-              className="bg-gray-50 dark:bg-slate-800 rounded-lg overflow-hidden border border-gray-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary transition-all duration-300 shadow-sm"
-            >
-              <div className="p-4 sm:p-6">
+          {projects.map((project, index) => {
+            const githubUrl =
+              typeof project.github === 'string' && project.github.startsWith('http')
+                ? project.github
+                : null
+
+            const cardInner = (
+              <>
                 <div className="mb-2">
                   <span className="text-xs text-primary bg-primary/20 px-2 py-1 rounded">{project.category}</span>
                 </div>
@@ -142,22 +139,41 @@ export default function Projects() {
                     <span key={techIndex} className="text-primary text-sm font-medium">{tech}</span>
                   ))}
                 </div>
-                <div className="flex space-x-4">
-                  <motion.a
-                    href={project.github}
+                {githubUrl && (
+                  <div className="flex items-center space-x-2 text-primary">
+                    <FaGithub className="text-lg" aria-hidden />
+                    <span className="font-medium">Code</span>
+                  </div>
+                )}
+              </>
+            )
+
+            return (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2, duration: 0.8 }}
+                whileHover={{ y: -10 }}
+                className="bg-gray-50 dark:bg-slate-800 rounded-lg overflow-hidden border border-gray-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary transition-all duration-300 shadow-sm"
+              >
+                {githubUrl ? (
+                  <a
+                    href={githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
+                    className="block p-4 sm:p-6 text-left no-underline rounded-lg outline-offset-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
+                    aria-label={`${project.title} — view repository on GitHub`}
                   >
-                    <FaGithub />
-                    <span>Code</span>
-                  </motion.a>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+                    {cardInner}
+                  </a>
+                ) : (
+                  <div className="p-4 sm:p-6">{cardInner}</div>
+                )}
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>
