@@ -9,7 +9,7 @@ export default function Experience() {
       company: 'RAXWO (PVT) LTD',
       position: 'Intern Software Developer',
       location: 'Sri Lanka',
-      period: 'Feb 2025 - Sept 2025',
+      period: 'MARCH 2025 – FEBRUARY 2026',
       description: 'Worked on full-stack web applications using MERN and PHP/MySQL, focusing on developing dynamic features and optimizing performance.',
       technologies: ['MERN Stack', 'PHP', 'MySQL', 'JavaScript'],
     },
