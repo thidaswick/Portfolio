@@ -1,39 +1,48 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaReact, FaNodeJs, FaPython, FaJs, FaJava, FaCode, FaDatabase, FaChartBar, FaRobot } from 'react-icons/fa'
-import { SiKotlin, SiMongodb, SiSpringboot, SiPhp, SiFigma, SiNextdotjs } from 'react-icons/si'
+import { FaReact, FaNodeJs, FaPython, FaJs, FaJava, FaCode, FaDatabase, FaRobot } from 'react-icons/fa'
+import { SiTypescript, SiMongodb, SiSpringboot, SiPhp, SiNextdotjs, SiExpress, SiPostgresql, SiFigma } from 'react-icons/si'
 
 export default function Skills() {
   const skillCategories = [
     {
-      title: 'Frontend & Web',
+      title: 'Programming',
       skills: [
-        { name: 'Next.js', icon: SiNextdotjs, level: 85 },
-        { name: 'React', icon: FaReact, level: 85 },
-        { name: 'JavaScript', icon: FaJs, level: 88 },
-        { name: 'HTML/CSS', icon: FaCode, level: 90 },
-        { name: 'MERN Stack', icon: FaCode, level: 85 },
-      ],
-    },
-    {
-      title: 'Backend & Mobile',
-      skills: [
-        { name: 'Node.js', icon: FaNodeJs, level: 85 },
-        { name: 'Spring Boot', icon: SiSpringboot, level: 80 },
-        { name: 'PHP/MySQL', icon: FaDatabase, level: 82 },
-        { name: 'Kotlin', icon: SiKotlin, level: 85 },
-        { name: 'Java', icon: FaJava, level: 88 },
+        { name: 'JavaScript', icon: FaJs, level: 90 },
+        { name: 'TypeScript', icon: SiTypescript, level: 85 },
+        { name: 'Java', icon: FaJava, level: 85 },
+        { name: 'PHP', icon: SiPhp, level: 82 },
         { name: 'Python', icon: FaPython, level: 80 },
       ],
     },
     {
-      title: 'Tools & Design',
+      title: 'Frameworks & Libraries',
       skills: [
+        { name: 'React.js', icon: FaReact, level: 90 },
+        { name: 'Node.js', icon: FaNodeJs, level: 88 },
+        { name: 'Express.js', icon: SiExpress, level: 85 },
+        { name: 'Next.js', icon: SiNextdotjs, level: 85 },
+        { name: 'Spring Boot', icon: SiSpringboot, level: 80 },
+      ],
+    },
+    {
+      title: 'Databases & Tools',
+      skills: [
+        { name: 'MySQL', icon: FaDatabase, level: 88 },
         { name: 'MongoDB', icon: SiMongodb, level: 85 },
-        { name: 'Power BI', icon: FaChartBar, level: 75 },
-        { name: 'UI/UX Design', icon: SiFigma, level: 80 },
-        { name: 'AI Tools', icon: FaRobot, level: 85 },
+        { name: 'PostgreSQL', icon: SiPostgresql, level: 78 },
+        { name: 'Git & GitHub', icon: FaCode, level: 90 },
+        { name: 'Figma', icon: SiFigma, level: 80 },
+      ],
+    },
+    {
+      title: 'Methodologies & AI',
+      skills: [
+        { name: 'RESTful APIs', icon: FaCode, level: 88 },
+        { name: 'Agile / Scrum', icon: FaCode, level: 85 },
+        { name: 'MVC Architecture', icon: FaCode, level: 82 },
+        { name: 'AI-Assisted Dev', icon: FaRobot, level: 88 },
       ],
     },
   ]
@@ -54,7 +63,7 @@ export default function Skills() {
           <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}

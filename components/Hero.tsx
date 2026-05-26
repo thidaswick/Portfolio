@@ -66,7 +66,7 @@ export default function Hero() {
   
   const socialLinks = [
     { icon: FaGithub, href: 'https://github.com/thidaswick', label: 'GitHub' },
-    { icon: FaLinkedin, href: 'https://www.linkedin.com/in/thidas-wickramasinghe', label: 'LinkedIn' },
+    { icon: FaLinkedin, href: 'https://www.linkedin.com/in/thidas-wickramasinghe/', label: 'LinkedIn' },
     { icon: FaEnvelope, href: 'mailto:thidaswickramasinghe8@gmail.com', label: 'Email' },
   ]
 
@@ -210,7 +210,7 @@ export default function Hero() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.7 }}
                 >
-                  Undergraduate
+                  Software Engineer
                 </motion.span>
                 <motion.span
                   className="text-primary"
@@ -225,7 +225,7 @@ export default function Hero() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.8 }}
                 >
-                  Developer
+                  Full-Stack Developer
                 </motion.span>
               </motion.p>
             </motion.div>
@@ -237,7 +237,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.6 }}
             >
-              {['React', 'Node.js', 'MongoDB', 'Kotlin', 'Spring Boot'].map((tech, index) => (
+              {['React.js', 'Node.js', 'TypeScript', 'MongoDB', 'Next.js'].map((tech, index) => (
                 <motion.div
                   key={tech}
                   initial={{ opacity: 0, scale: 0 }}
@@ -261,7 +261,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.6 }}
             >
-              Passionate Information Technology undergraduate focused on Software Engineering, skilled in MERN, Android, and backend technologies. Driven to deliver efficient and modern software solutions.
+              MERN stack developer and IT undergraduate at SLIIT with internship and contract experience building production ERP and web applications. Proficient in React.js, Node.js, TypeScript, PHP, and MySQL.
             </motion.p>
 
             <motion.div

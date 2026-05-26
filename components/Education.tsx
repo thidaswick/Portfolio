@@ -7,14 +7,14 @@ export default function Education() {
   const education = [
     {
       institution: 'Sri Lanka Institute of Information Technology (SLIIT)',
-      degree: 'Faculty of Computing, Information Technology',
-      period: '2022 - PRESENT',
+      degree: 'BSc (Hons) in Information Technology',
+      period: 'SEPT 2022 – PRESENT (Expected: March 2027)',
       icon: FaUniversity,
     },
     {
-      institution: 'Dharmaraja College Kandy',
-      degree: 'Completed G.C.E(O/L) 2018, Completed G.C.E(A/L) 2022',
-      period: '2008 - 2022',
+      institution: 'Dharmaraja College, Kandy',
+      degree: 'Completed GCE O/L and A/L',
+      period: 'JAN 2008 – AUG 2021',
       icon: FaGraduationCap,
     },
   ]
@@ -38,7 +38,7 @@ export default function Education() {
         <div className="grid sm:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
           {education.map((edu, index) => (
             <motion.div
-              key={index}
+              key={edu.institution}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -54,8 +54,8 @@ export default function Education() {
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 break-words">{edu.institution}</h3>
                   <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-3">{edu.degree}</p>
                   <div className="flex items-center text-gray-600 dark:text-gray-400">
-                    <FaCalendarAlt className="mr-2" />
-                    <span>{edu.period}</span>
+                    <FaCalendarAlt className="mr-2 flex-shrink-0" />
+                    <span className="text-sm sm:text-base">{edu.period}</span>
                   </div>
                 </div>
               </div>

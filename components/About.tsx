@@ -1,29 +1,33 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaCode, FaLaptopCode, FaMobileAlt, FaRobot } from 'react-icons/fa'
+import { FaCode, FaLaptopCode, FaProjectDiagram, FaRobot } from 'react-icons/fa'
 
 export default function About() {
   const features = [
     {
       icon: FaCode,
       title: 'Full-Stack Development',
-      description: 'Building complete web applications with MERN stack and PHP/MySQL',
+      description:
+        'Building production web applications with React.js, Node.js, TypeScript, PHP, and MySQL — from RESTful APIs to responsive UIs.',
     },
     {
-      icon: FaMobileAlt,
-      title: 'Mobile Development',
-      description: 'Creating Android applications with Kotlin and Java',
+      icon: FaProjectDiagram,
+      title: 'ERP & Enterprise Systems',
+      description:
+        'Hands-on experience delivering ERP modules, inventory, reporting, and business workflow systems in Agile teams.',
     },
     {
       icon: FaLaptopCode,
-      title: 'UI/UX Design',
-      description: 'Designing intuitive interfaces with Figma and modern design principles',
+      title: 'Agile Delivery',
+      description:
+        'Experienced in requirement analysis, sprint reviews, backend integration, testing, and deployment in collaborative environments.',
     },
     {
       icon: FaRobot,
       title: 'AI-Assisted Development',
-      description: 'Leveraging AI tools like ChatGPT and GitHub Copilot to enhance productivity, code quality, and problem-solving efficiency',
+      description:
+        'Using GitHub Copilot, Cursor AI, ChatGPT, and Claude to improve productivity, code quality, and problem-solving.',
     },
   ]
 
@@ -52,13 +56,13 @@ export default function About() {
           >
             <h3 className="text-2xl lg:text-2xl font-bold text-gray-900 dark:text-white mb-4">Hello! I&apos;m Thidas</h3>
             <p className="text-gray-700 dark:text-gray-300 text-lg mb-4">
-              I&apos;m a passionate Information Technology undergraduate focused on Software Engineering, skilled in MERN, Android, and backend technologies. A quick learner with a proactive mindset and proven experience through a completed internship.
+              I&apos;m a MERN stack developer and IT undergraduate at SLIIT with two internships building production ERP and web applications. Proficient in React.js, Node.js, TypeScript, PHP, and MySQL, with hands-on experience in RESTful API development, Agile workflows, and full-stack application delivery.
             </p>
-            <p className="text-gray-700 text-lg mb-4">
-              Currently pursuing my degree at Sri Lanka Institute of Information Technology (SLIIT), I have hands-on experience in full-stack web development, mobile app development, and working with modern technologies like React, Node.js, MongoDB, Kotlin, and Spring Boot.
+            <p className="text-gray-700 dark:text-gray-300 text-lg mb-4">
+              I&apos;ve worked as a Contract Software Engineer at Qube Design Labs on production ERP modules, and as an Intern Software Engineer at RAXWO Technologies across hostel management, agency ERP, and enterprise PHP systems.
             </p>
-            <p className="text-gray-700 text-lg">
-              I&apos;m driven to deliver efficient and modern software solutions. Always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+            <p className="text-gray-700 dark:text-gray-300 text-lg">
+              A quick learner who adapts to new technologies and contributes to team-based software projects from requirements through deployment. Always open to discussing new opportunities and meaningful projects.
             </p>
           </motion.div>
 

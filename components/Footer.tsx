@@ -6,7 +6,7 @@ import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa'
 export default function Footer() {
   const socialLinks = [
     { icon: FaGithub, href: 'https://github.com/thidaswick', label: 'GitHub' },
-    { icon: FaLinkedin, href: 'https://www.linkedin.com/in/thidas-wickramasinghe', label: 'LinkedIn' },
+    { icon: FaLinkedin, href: 'https://www.linkedin.com/in/thidas-wickramasinghe/', label: 'LinkedIn' },
     { icon: FaEnvelope, href: 'mailto:thidaswickramasinghe8@gmail.com', label: 'Email' },
   ]
 

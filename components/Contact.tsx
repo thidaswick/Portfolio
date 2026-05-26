@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa'
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane, FaGlobe } from 'react-icons/fa'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -42,8 +42,14 @@ export default function Contact() {
     {
       icon: FaMapMarkerAlt,
       title: 'Location',
-      value: 'Malabe, Sri Lanka',
+      value: 'Mount Lavinia, Sri Lanka',
       link: '#',
+    },
+    {
+      icon: FaGlobe,
+      title: 'Website',
+      value: 'thidaswick.com',
+      link: 'https://thidaswick.com',
     },
   ]
 

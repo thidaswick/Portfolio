@@ -6,12 +6,31 @@ import { FaBriefcase, FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa'
 export default function Experience() {
   const experiences = [
     {
-      company: 'RAXWO (PVT) LTD',
-      position: 'Intern Software Developer',
+      company: 'Qube Design Labs',
+      position: 'Contract Software Engineer',
       location: 'Sri Lanka',
-      period: 'MARCH 2025 – FEBRUARY 2026',
-      description: 'Worked on full-stack web applications using MERN and PHP/MySQL, focusing on developing dynamic features and optimizing performance.',
-      technologies: ['MERN Stack', 'PHP', 'MySQL', 'JavaScript'],
+      period: 'DEC 2025 – MAY 2026',
+      description:
+        'Developed and delivered modules for a production ERP solution serving real business workflows using the MERN stack.',
+      highlights: [
+        'Implemented UI components and RESTful API endpoints across 3+ ERP modules including inventory and reporting.',
+        'Collaborated in an Agile team — requirement analysis, sprint reviews, UI implementation, backend integration, testing, and bug fixing.',
+      ],
+      technologies: ['MERN Stack', 'React.js', 'Node.js', 'MongoDB', 'REST APIs', 'Agile'],
+    },
+    {
+      company: 'RAXWO Technologies',
+      position: 'Intern Software Engineer',
+      location: 'Sri Lanka',
+      period: 'MAR 2025 – SEP 2025',
+      description:
+        'Built full-stack web features across 3 concurrent projects, focusing on dynamic UI, RESTful APIs, and MySQL schema design.',
+      highlights: [
+        'Built a Hostel Management System for 200+ students with bookings, room allocation, and records using MERN and JWT authentication.',
+        'Contributed to an Agency ERP with client tracking, project management, invoicing, and reporting across 10+ client accounts.',
+        'Supported an enterprise management platform with PHP, JavaScript, and MySQL — improving data handling and query performance.',
+      ],
+      technologies: ['MERN Stack', 'PHP', 'MySQL', 'JavaScript', 'JWT', 'REST APIs'],
     },
   ]
 
@@ -34,18 +53,15 @@ export default function Experience() {
         <div className="max-w-4xl mx-auto">
           {experiences.map((exp, index) => (
             <motion.div
-              key={index}
+              key={exp.company}
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2, duration: 0.8 }}
               className="relative pl-6 sm:pl-8 pb-8 sm:pb-12 last:pb-0"
             >
-              {/* Timeline line */}
               <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-primary"></div>
-              
-              {/* Timeline dot */}
-              <div className="absolute left-0 top-1 transform -translate-x-1/2 w-3 h-3 sm:w-4 sm:h-4 bg-primary rounded-full border-2 sm:border-4 border-white"></div>
+              <div className="absolute left-0 top-1 transform -translate-x-1/2 w-3 h-3 sm:w-4 sm:h-4 bg-primary rounded-full border-2 sm:border-4 border-white dark:border-slate-900"></div>
 
               <div className="bg-gray-50 dark:bg-slate-800 p-4 sm:p-6 rounded-lg border border-gray-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary transition-colors shadow-sm">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-3 sm:mb-4">
@@ -57,21 +73,26 @@ export default function Experience() {
                     </div>
                   </div>
                   <div className="flex flex-col items-start md:items-end mt-2 md:mt-0">
-                    <div className="flex items-center text-gray-600 mb-1">
+                    <div className="flex items-center text-gray-600 dark:text-gray-400 mb-1">
                       <FaCalendarAlt className="mr-2" />
                       <span>{exp.period}</span>
                     </div>
-                    <div className="flex items-center text-gray-600">
+                    <div className="flex items-center text-gray-600 dark:text-gray-400">
                       <FaMapMarkerAlt className="mr-2" />
                       <span>{exp.location}</span>
                     </div>
                   </div>
                 </div>
-                <p className="text-gray-700 dark:text-gray-300 mb-4">{exp.description}</p>
+                <p className="text-gray-700 dark:text-gray-300 mb-3">{exp.description}</p>
+                <ul className="list-disc list-inside space-y-1.5 text-gray-700 dark:text-gray-300 mb-4 text-sm sm:text-base">
+                  {exp.highlights.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
                 <div className="flex flex-wrap gap-2">
-                  {exp.technologies.map((tech, techIndex) => (
+                  {exp.technologies.map((tech) => (
                     <span
-                      key={techIndex}
+                      key={tech}
                       className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm border border-primary/30"
                     >
                       {tech}

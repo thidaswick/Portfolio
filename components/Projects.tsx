@@ -1,99 +1,110 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaGithub, FaExternalLinkAlt, FaCode, FaDatabase, FaJava } from 'react-icons/fa'
-import { SiKotlin, SiSpringboot, SiPhp, SiPython, SiMongodb, SiFigma, SiJavascript } from 'react-icons/si'
+import { FaGithub, FaCode, FaDatabase, FaJava } from 'react-icons/fa'
+import { SiSpringboot, SiPhp, SiPython, SiJavascript } from 'react-icons/si'
 
 export default function Projects() {
   const projects = [
     {
-      title: 'Hostel Management System',
-      description: 'Full-stack web application for managing hostel operations, bookings, and student records.',
-      tech: ['MERN Stack'],
+      title: 'WorqHub',
+      description:
+        'Multi-tenant MERN SaaS ERP platform for SMEs — work orders, inventory, customers, invoicing, and reports with tenant data isolation, RBAC, and RESTful APIs. Built during my contract role at Qube Design Labs.',
+      tech: ['MERN Stack', 'MongoDB', 'JWT', 'RBAC'],
       techIcons: [FaCode],
-      category: 'Systems & Management (Internship)',
+      category: 'Contract · Qube Design Labs',
+      github: 'https://github.com/thidaswick/WorqHub.git',
+      demo: '#',
+    },
+    {
+      title: 'Hostel Management System',
+      description:
+        'Full-stack system for bookings, room allocation, and student records for 200+ students, built with MERN and JWT authentication.',
+      tech: ['MERN Stack', 'JWT'],
+      techIcons: [FaCode],
+      category: 'Internship · RAXWO Technologies',
       github: null,
       demo: '#',
     },
     {
-      title: 'Agency Management System',
-      description: 'Comprehensive management system for agencies with client tracking, project management, and reporting features.',
+      title: 'Agency ERP Management System',
+      description:
+        'Agency management with client tracking, project management, invoicing, and reporting across 10+ client accounts.',
       tech: ['MERN Stack'],
       techIcons: [FaCode],
-      category: 'Systems & Management (Internship)',
+      category: 'Internship · RAXWO Technologies',
       github: 'https://github.com/thidaswick/AgencySystem.git',
       demo: '#',
     },
     {
-      title: 'Company System',
-      description: 'Enterprise management system built with PHP and MySQL for company operations and data management.',
+      title: 'Enterprise Management Platform',
+      description:
+        'Enterprise system using PHP, JavaScript, and MySQL with improved data handling and reduced query load times.',
       tech: ['PHP', 'MySQL', 'JavaScript'],
       techIcons: [SiPhp, FaDatabase, SiJavascript],
-      category: 'Systems & Management (Internship)',
+      category: 'Internship · RAXWO Technologies',
       github: 'https://github.com/thidaswick/Raxwo-Company-System.git',
       demo: '#',
     },
     {
-      title: 'AcadamiX',
-      description: 'E-learning platform for educational institutions with course management and student tracking features.',
-      tech: ['Java', 'Spring Boot'],
-      techIcons: [FaJava, SiSpringboot],
-      category: 'E-Learning & Education (University)',
-      github: 'https://github.com/Izu99/paf-skillshare',
+      title: 'Career Development & Recruitment Framework',
+      description:
+        'Final year research project: explainable AI-based career decision-support using multimodal and causal AI. Career Safety and Industry Stability Analysis module in progress.',
+      tech: ['Python', 'Scikit-learn', 'Flask', 'React'],
+      techIcons: [SiPython, FaCode],
+      category: 'Academic · Final Year Research (2026)',
+      status: 'ongoing' as const,
+      github: null,
       demo: '#',
     },
     {
-      title: 'Event Lanka',
-      description: 'Event management mobile application for organizing and managing events in Sri Lanka.',
-      tech: ['Kotlin', 'Java'],
-      techIcons: [SiKotlin, FaJava],
-      category: 'E-Learning & Education (University)',
-      github: '#',
+      title: 'Event Photography & Videography Booking System',
+      description:
+        'Full-stack academic web application for event photography and videography reservations with booking CRUD and responsive UI.',
+      tech: ['Java', 'JSP/Servlets', 'Bootstrap'],
+      techIcons: [FaJava, FaCode],
+      category: 'Academic Project (2026)',
+      github: 'https://github.com/thidaswick/Event-booking-system.git',
       demo: '#',
     },
     {
-      title: 'FitPulse',
-      description: 'Android fitness tracking application for workout management and health monitoring.',
-      tech: ['Kotlin'],
-      techIcons: [SiKotlin],
-      category: 'Health & Fitness (University)',
-      github: '#',
+      title: 'Garage ERP System',
+      description:
+        'Web-based ERP for an automobile service centre: technician job assignment, status tracking, inventory, and invoicing with real-time updates.',
+      tech: ['Node.js', 'TypeScript', 'SQLite'],
+      techIcons: [FaCode, FaDatabase],
+      category: 'Academic Project (2026)',
+      github: 'https://github.com/HaritheW/Yasuki.git',
       demo: '#',
     },
     {
       title: 'CeylonHarvest',
-      description: 'Agriculture management system with AI-powered disease detection for crops, built with MERN stack and Python.',
+      description:
+        'AI-powered agriculture web app for farmers to upload plant images for automated disease detection with treatment and prevention recommendations.',
       tech: ['MERN', 'Python'],
       techIcons: [FaCode, SiPython],
-      category: 'Agriculture & Smart Solutions (University)',
+      category: 'Academic Project (2025)',
       github: 'https://github.com/thidaswick/Ceylone-Harvest.git',
       demo: '#',
     },
     {
+      title: 'SkillShare',
+      description:
+        'Community learning platform with user authentication, skill/course listings, RESTful APIs, and client-server integration.',
+      tech: ['Java', 'React.js', 'Spring Boot'],
+      techIcons: [FaJava, SiSpringboot],
+      category: 'Academic Project (2025)',
+      github: 'https://github.com/Izu99/paf-skillshare',
+      demo: '#',
+    },
+    {
       title: 'Store Management System',
-      description: 'Complete store management solution with inventory tracking, sales management, and reporting capabilities.',
-      tech: ['MERN Stack'],
+      description:
+        'Store management system for Lanka Glass House with secure data handling, RESTful APIs, and module integration.',
+      tech: ['MongoDB', 'React.js', 'Node.js', 'Express.js', 'Next.js'],
       techIcons: [FaCode],
-      category: 'Store & Business Management (University)',
+      category: 'Academic Project (2025)',
       github: 'https://github.com/thidaswick/WebProject',
-      demo: '#',
-    },
-    {
-      title: 'TorontoCupcakes Website Redesign',
-      description: 'Modern UI/UX redesign for TorontoCupcakes website focusing on user experience and visual appeal.',
-      tech: ['Figma', 'UI/UX'],
-      techIcons: [SiFigma],
-      category: 'UI/UX Design (University)',
-      github: '#',
-      demo: '#',
-    },
-    {
-      title: 'FitTrack Fitness App UI Design',
-      description: 'Creative mobile app UI design for fitness tracking application with intuitive user interface.',
-      tech: ['Figma', 'UI/UX'],
-      techIcons: [SiFigma],
-      category: 'UI/UX Design (University)',
-      github: '#',
       demo: '#',
     },
   ]
@@ -112,8 +123,8 @@ export default function Projects() {
             Featured <span className="text-primary">Projects</span>
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Here are some of my recent projects that showcase my skills and experience
+          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Internship deliverables and academic projects from my portfolio and CV
           </p>
         </motion.div>
 
@@ -126,8 +137,13 @@ export default function Projects() {
 
             const cardInner = (
               <>
-                <div className="mb-2">
+                <div className="mb-2 flex flex-wrap gap-2">
                   <span className="text-xs text-primary bg-primary/20 px-2 py-1 rounded">{project.category}</span>
+                  {'status' in project && project.status === 'ongoing' && (
+                    <span className="text-xs text-amber-700 dark:text-amber-300 bg-amber-500/20 px-2 py-1 rounded border border-amber-500/30">
+                      Ongoing
+                    </span>
+                  )}
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">{project.title}</h3>
                 <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-4">{project.description}</p>
@@ -136,7 +152,9 @@ export default function Projects() {
                     <TechIcon key={techIndex} className="text-primary text-lg" title={project.tech[techIndex]} />
                   ))}
                   {project.tech.filter((_, i) => i >= project.techIcons.length).map((tech, techIndex) => (
-                    <span key={techIndex} className="text-primary text-sm font-medium">{tech}</span>
+                    <span key={techIndex} className="text-primary text-sm font-medium">
+                      {tech}
+                    </span>
                   ))}
                 </div>
                 {githubUrl && (
@@ -154,7 +172,7 @@ export default function Projects() {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.2, duration: 0.8 }}
+                transition={{ delay: index * 0.1, duration: 0.8 }}
                 whileHover={{ y: -10 }}
                 className="bg-gray-50 dark:bg-slate-800 rounded-lg overflow-hidden border border-gray-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary transition-all duration-300 shadow-sm"
               >
