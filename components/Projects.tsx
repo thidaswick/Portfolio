@@ -110,25 +110,20 @@ export default function Projects() {
   ]
 
   return (
-    <section id="projects" className="py-12 sm:py-16 md:py-20 bg-white dark:bg-slate-900">
-      <div className="container mx-auto px-4 sm:px-6">
+    <section id="projects" className="section-pad">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="mb-14 max-w-2xl"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Featured <span className="text-primary">Projects</span>
-          </h2>
-          <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Internship deliverables and academic projects from my portfolio and CV
-          </p>
+          <p className="section-label mb-3">05 — Projects</p>
+          <h2 className="display-title text-4xl sm:text-5xl">Selected work across product and academia</h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid gap-5 sm:grid-cols-2">
           {projects.map((project, index) => {
             const githubUrl =
               typeof project.github === 'string' && project.github.startsWith('http')
@@ -137,30 +132,32 @@ export default function Projects() {
 
             const cardInner = (
               <>
-                <div className="mb-2 flex flex-wrap gap-2">
-                  <span className="text-xs text-primary bg-primary/20 px-2 py-1 rounded">{project.category}</span>
+                <div className="mb-4 flex flex-wrap items-center gap-2">
+                  <span className="rounded-full border border-line px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-muted">
+                    {project.category}
+                  </span>
                   {'status' in project && project.status === 'ongoing' && (
-                    <span className="text-xs text-amber-700 dark:text-amber-300 bg-amber-500/20 px-2 py-1 rounded border border-amber-500/30">
+                    <span className="rounded-full bg-accent-soft px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-accent-deep dark:text-accent">
                       Ongoing
                     </span>
                   )}
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">{project.title}</h3>
-                <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-3 mb-4">
-                  {project.techIcons.map((TechIcon, techIndex) => (
-                    <TechIcon key={techIndex} className="text-primary text-lg" title={project.tech[techIndex]} />
-                  ))}
-                  {project.tech.filter((_, i) => i >= project.techIcons.length).map((tech, techIndex) => (
-                    <span key={techIndex} className="text-primary text-sm font-medium">
+                <h3 className="mb-3 font-display text-2xl font-semibold text-ink">{project.title}</h3>
+                <p className="mb-5 text-sm leading-relaxed text-ink-soft sm:text-base">{project.description}</p>
+                <div className="mb-5 flex flex-wrap gap-2">
+                  {project.tech.map((tech) => (
+                    <span key={tech} className="text-xs font-medium text-accent">
                       {tech}
                     </span>
                   ))}
                 </div>
                 {githubUrl && (
-                  <div className="flex items-center space-x-2 text-primary">
-                    <FaGithub className="text-lg" aria-hidden />
-                    <span className="font-medium">Code</span>
+                  <div className="mt-auto flex items-center gap-2 text-sm font-semibold text-ink">
+                    <FaGithub />
+                    <span>View code</span>
+                    <span aria-hidden className="transition-transform group-hover:translate-x-1">
+                      →
+                    </span>
                   </div>
                 )}
               </>
@@ -169,25 +166,24 @@ export default function Projects() {
             return (
               <motion.div
                 key={project.title}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.8 }}
-                whileHover={{ y: -10 }}
-                className="bg-gray-50 dark:bg-slate-800 rounded-lg overflow-hidden border border-gray-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary transition-all duration-300 shadow-sm"
+                transition={{ delay: Math.min(index * 0.05, 0.35), duration: 0.5 }}
+                className="group panel flex h-full flex-col p-6 transition-colors hover:border-accent sm:p-7"
               >
                 {githubUrl ? (
                   <a
                     href={githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block p-4 sm:p-6 text-left no-underline rounded-lg outline-offset-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
+                    className="flex h-full flex-col text-left no-underline outline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
                     aria-label={`${project.title} — view repository on GitHub`}
                   >
                     {cardInner}
                   </a>
                 ) : (
-                  <div className="p-4 sm:p-6">{cardInner}</div>
+                  <div className="flex h-full flex-col">{cardInner}</div>
                 )}
               </motion.div>
             )

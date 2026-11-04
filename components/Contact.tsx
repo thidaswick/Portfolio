@@ -13,7 +13,6 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission here
     console.log('Form submitted:', formData)
     alert('Message sent! (This is a demo)')
     setFormData({ name: '', email: '', message: '' })
@@ -54,67 +53,60 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" className="py-12 sm:py-16 md:py-20 bg-gray-50 dark:bg-slate-900">
-      <div className="container mx-auto px-4 sm:px-6">
+    <section id="contact" className="section-pad bg-[color-mix(in_srgb,var(--bg-muted)_55%,transparent)]">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="mb-14 max-w-2xl"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Get In <span className="text-primary">Touch</span>
-          </h2>
-          <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+          <p className="section-label mb-3">06 — Contact</p>
+          <h2 className="display-title text-4xl sm:text-5xl">Let&apos;s build something useful</h2>
+          <p className="body-copy mt-4 text-lg">
+            Open to new projects, collaborations, and full-time opportunities.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            className="space-y-3"
           >
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Contact Information</h3>
-            <div className="space-y-6">
-              {contactInfo.map((info, index) => (
-                <motion.a
-                  key={info.title}
-                  href={info.link}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ x: 10 }}
-                  className="flex items-center space-x-4 p-4 bg-white dark:bg-slate-800 rounded-lg border border-gray-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary transition-colors shadow-sm"
-                >
-                  <div className="text-primary text-xl">
-                    <info.icon />
-                  </div>
-                  <div>
-                    <h4 className="text-gray-600 dark:text-gray-400 text-sm">{info.title}</h4>
-                    <p className="text-gray-900 dark:text-white">{info.value}</p>
-                  </div>
-                </motion.a>
-              ))}
-            </div>
+            {contactInfo.map((info, index) => (
+              <motion.a
+                key={info.title}
+                href={info.link}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                className="panel flex items-center gap-4 p-4 transition-colors hover:border-accent"
+              >
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-accent-soft text-accent-deep dark:text-accent">
+                  <info.icon />
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-wider text-muted">{info.title}</p>
+                  <p className="font-medium text-ink">{info.value}</p>
+                </div>
+              </motion.a>
+            ))}
           </motion.div>
 
           <motion.form
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
             onSubmit={handleSubmit}
-            className="space-y-6"
+            className="panel space-y-5 p-6 sm:p-8"
           >
             <div>
-              <label htmlFor="name" className="block text-gray-700 dark:text-gray-300 mb-2">
-                Your Name
+              <label htmlFor="name" className="mb-2 block text-sm font-medium text-ink-soft">
+                Your name
               </label>
               <input
                 type="text"
@@ -123,13 +115,13 @@ export default function Contact() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:border-primary transition-colors"
-                placeholder="John Doe"
+                className="w-full rounded-xl border border-line bg-surface-page px-4 py-3 text-ink outline-none transition-colors focus:border-accent"
+                placeholder="Alex Rivera"
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-gray-700 mb-2">
-                Your Email
+              <label htmlFor="email" className="mb-2 block text-sm font-medium text-ink-soft">
+                Your email
               </label>
               <input
                 type="email"
@@ -138,13 +130,13 @@ export default function Contact() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:border-primary transition-colors"
-                placeholder="john@example.com"
+                className="w-full rounded-xl border border-line bg-surface-page px-4 py-3 text-ink outline-none transition-colors focus:border-accent"
+                placeholder="alex@example.com"
               />
             </div>
             <div>
-              <label htmlFor="message" className="block text-gray-700 mb-2">
-                Your Message
+              <label htmlFor="message" className="mb-2 block text-sm font-medium text-ink-soft">
+                Message
               </label>
               <textarea
                 id="message"
@@ -153,19 +145,14 @@ export default function Contact() {
                 onChange={handleChange}
                 required
                 rows={6}
-                className="w-full px-4 py-3 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:border-primary transition-colors resize-none"
-                placeholder="Hello, I'd like to discuss..."
-              ></textarea>
+                className="w-full resize-none rounded-xl border border-line bg-surface-page px-4 py-3 text-ink outline-none transition-colors focus:border-accent"
+                placeholder="Tell me about your project or role..."
+              />
             </div>
-            <motion.button
-              type="submit"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full px-8 py-4 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark transition-colors flex items-center justify-center space-x-2 shadow-lg shadow-primary/50"
-            >
-              <span>Send Message</span>
+            <button type="submit" className="btn-primary w-full sm:w-auto">
+              <span>Send message</span>
               <FaPaperPlane />
-            </motion.button>
+            </button>
           </motion.form>
         </div>
       </div>

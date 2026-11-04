@@ -32,63 +32,57 @@ export default function About() {
   ]
 
   return (
-    <section id="about" className="py-12 sm:py-16 md:py-20 bg-white dark:bg-slate-900">
-      <div className="container mx-auto px-4 sm:px-6">
+    <section id="about" className="section-pad">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="mb-14 max-w-2xl"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            About <span className="text-primary">Me</span>
+          <p className="section-label mb-3">01 — About</p>
+          <h2 className="display-title text-4xl sm:text-5xl">
+            Crafting reliable software with clarity and pace
           </h2>
-          <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-12 md:mb-16">
+        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
+            className="space-y-5"
           >
-            <h3 className="text-2xl lg:text-2xl font-bold text-gray-900 dark:text-white mb-4">Hello! I&apos;m Thidas</h3>
-            <p className="text-gray-700 dark:text-gray-300 text-lg mb-4">
+            <h3 className="font-display text-2xl font-semibold text-ink">Hello — I&apos;m Thidas</h3>
+            <p className="body-copy text-lg">
               I&apos;m a MERN stack developer and IT undergraduate at SLIIT with two internships building production ERP and web applications. Proficient in React.js, Node.js, TypeScript, PHP, and MySQL, with hands-on experience in RESTful API development, Agile workflows, and full-stack application delivery.
             </p>
-            <p className="text-gray-700 dark:text-gray-300 text-lg mb-4">
+            <p className="body-copy text-lg">
               I&apos;ve worked as a Contract Software Engineer at Qube Design Labs on production ERP modules, and as an Intern Software Engineer at RAXWO Technologies across hostel management, agency ERP, and enterprise PHP systems.
             </p>
-            <p className="text-gray-700 dark:text-gray-300 text-lg">
-              A quick learner who adapts to new technologies and contributes to team-based software projects from requirements through deployment. Always open to discussing new opportunities and meaningful projects.
+            <p className="body-copy text-lg">
+              A quick learner who adapts to new technologies and contributes to team-based software projects from requirements through deployment.
             </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
-          >
+          <div className="grid gap-4 sm:grid-cols-2">
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
-                whileHover={{ scale: 1.05 }}
-                className="bg-gray-50 dark:bg-slate-800 p-6 rounded-lg border border-gray-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary transition-colors shadow-sm"
+                transition={{ delay: index * 0.08, duration: 0.5 }}
+                className="panel p-5 transition-colors hover:border-accent"
               >
-                <feature.icon className="text-primary text-2xl lg:text-2xl mb-4" />
-                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{feature.title}</h4>
-                <p className="text-gray-600 dark:text-gray-400">{feature.description}</p>
+                <feature.icon className="mb-4 text-xl text-accent" />
+                <h4 className="mb-2 font-display text-lg font-semibold text-ink">{feature.title}</h4>
+                <p className="text-sm leading-relaxed text-muted">{feature.description}</p>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

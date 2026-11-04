@@ -11,121 +11,94 @@ export default function Navbar() {
   const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
+    const handleScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
     { name: 'Experience', href: '#experience' },
-    { name: 'Education', href: '#education' },
     { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
   ]
 
-  const handleLinkClick = () => {
-    setMobileMenuOpen(false)
-  }
-
   return (
     <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      initial={{ y: -24, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-lg' 
+        scrolled
+          ? 'bg-[color-mix(in_srgb,var(--bg)_82%,transparent)] backdrop-blur-xl border-b border-line'
           : 'bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-4 py-3 sm:py-4">
-        <div className="flex items-center justify-between">
-          <motion.a
-            href="#home"
-            whileHover={{ scale: 1.05 }}
-            className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white"
-          >
-            thidaswick
-          </motion.a>
-          
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-            {navLinks.map((link, index) => (
-              <motion.a
-                key={link.name}
-                href={link.href}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.1 }}
-                className="text-sm lg:text-base text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
-              >
-                {link.name}
-              </motion.a>
-            ))}
-            {/* Theme Toggle Button */}
-            <motion.button
-              onClick={toggleTheme}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
-              aria-label="Toggle theme"
-            >
-              {theme === 'light' ? <FaMoon className="text-lg" /> : <FaSun className="text-lg" />}
-            </motion.button>
-          </div>
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
+        <a href="#home" className="font-display text-xl font-bold tracking-tight text-ink sm:text-2xl">
+          thidas<span className="text-accent">wick</span>
+        </a>
 
-          {/* Mobile Menu Button */}
-          <div className="flex items-center space-x-3 md:hidden">
-            {/* Theme Toggle Button - Mobile */}
-            <motion.button
-              onClick={toggleTheme}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="p-2 rounded-lg text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
-              aria-label="Toggle theme"
+        <div className="hidden items-center gap-8 md:flex">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="group relative text-sm font-medium text-ink-soft transition-colors hover:text-ink"
             >
-              {theme === 'light' ? <FaMoon className="text-lg" /> : <FaSun className="text-lg" />}
-            </motion.button>
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-gray-900 dark:text-white text-2xl focus:outline-none"
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? <FaTimes /> : <FaBars />}
-            </button>
-          </div>
+              {link.name}
+              <span className="absolute -bottom-1 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
+            </a>
+          ))}
+          <button
+            onClick={toggleTheme}
+            className="rounded-full border border-line p-2.5 text-ink-soft transition-colors hover:border-accent hover:text-accent"
+            aria-label="Toggle theme"
+          >
+            {theme === 'light' ? <FaMoon /> : <FaSun />}
+          </button>
+          <a href="#contact" className="btn-primary text-sm">
+            Let&apos;s talk
+          </a>
+        </div>
+
+        <div className="flex items-center gap-3 md:hidden">
+          <button
+            onClick={toggleTheme}
+            className="rounded-full border border-line p-2.5 text-ink"
+            aria-label="Toggle theme"
+          >
+            {theme === 'light' ? <FaMoon /> : <FaSun />}
+          </button>
+          <button
+            onClick={() => setMobileMenuOpen((open) => !open)}
+            className="text-2xl text-ink"
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+          </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-gray-200 dark:border-slate-700"
+            className="border-t border-line bg-[color-mix(in_srgb,var(--bg)_94%,transparent)] backdrop-blur-xl md:hidden"
           >
-            <div className="container mx-auto px-4 py-4 space-y-3">
-              {navLinks.map((link, index) => (
-                <motion.a
+            <div className="space-y-1 px-5 py-4">
+              {navLinks.map((link) => (
+                <a
                   key={link.name}
                   href={link.href}
-                  onClick={handleLinkClick}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors py-2 text-base"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block py-3 text-base font-medium text-ink-soft"
                 >
                   {link.name}
-                </motion.a>
+                </a>
               ))}
             </div>
           </motion.div>

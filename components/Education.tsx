@@ -20,44 +20,35 @@ export default function Education() {
   ]
 
   return (
-    <section id="education" className="py-12 sm:py-16 md:py-20 bg-gray-50 dark:bg-slate-900">
-      <div className="container mx-auto px-4 sm:px-6">
+    <section id="education" className="section-pad bg-[color-mix(in_srgb,var(--bg-muted)_55%,transparent)]">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="mb-14 max-w-2xl"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            <span className="text-primary">Education</span>
-          </h2>
-          <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
+          <p className="section-label mb-3">04 — Education</p>
+          <h2 className="display-title text-4xl sm:text-5xl">Learning that shapes the craft</h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
+        <div className="grid gap-5 md:grid-cols-2">
           {education.map((edu, index) => (
             <motion.div
               key={edu.institution}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.2, duration: 0.8 }}
-              whileHover={{ scale: 1.05 }}
-              className="bg-white dark:bg-slate-800 p-4 sm:p-6 rounded-lg border border-gray-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary transition-all duration-300 shadow-sm"
+              transition={{ delay: index * 0.1, duration: 0.55 }}
+              className="panel p-6 sm:p-8"
             >
-              <div className="flex items-start space-x-3 sm:space-x-4">
-                <div className="text-primary text-2xl sm:text-3xl lg:text-2xl flex-shrink-0">
-                  <edu.icon />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 break-words">{edu.institution}</h3>
-                  <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-3">{edu.degree}</p>
-                  <div className="flex items-center text-gray-600 dark:text-gray-400">
-                    <FaCalendarAlt className="mr-2 flex-shrink-0" />
-                    <span className="text-sm sm:text-base">{edu.period}</span>
-                  </div>
-                </div>
+              <edu.icon className="mb-5 text-2xl text-accent" />
+              <h3 className="mb-2 font-display text-xl font-semibold text-ink">{edu.institution}</h3>
+              <p className="mb-4 text-ink-soft">{edu.degree}</p>
+              <div className="flex items-center gap-2 text-sm text-muted">
+                <FaCalendarAlt />
+                <span>{edu.period}</span>
               </div>
             </motion.div>
           ))}

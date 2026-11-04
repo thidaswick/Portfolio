@@ -1,16 +1,24 @@
 import type { Metadata } from 'next'
-import { Poppins } from 'next/font/google'
+import { Syne, Outfit } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/contexts/ThemeContext'
 
-const poppins = Poppins({ 
+const syne = Syne({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800', '900']
+  weight: ['500', '600', '700', '800'],
+  variable: '--font-syne',
+})
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-outfit',
 })
 
 export const metadata: Metadata = {
   title: 'Thidas Wickramasinghe - Portfolio',
-  description: 'Software Engineer & Full-Stack Developer | MERN Stack | React.js | Node.js | TypeScript | ERP & Web Applications',
+  description:
+    'Software Engineer & Full-Stack Developer | MERN Stack | React.js | Node.js | TypeScript | ERP & Web Applications',
 }
 
 export const viewport = {
@@ -25,8 +33,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={poppins.className}>
-        <ThemeProvider>{children}</ThemeProvider>
+      <body className={`${syne.variable} ${outfit.variable} font-body antialiased`}>
+        <ThemeProvider>
+          <div className="site-shell min-h-screen">
+            <div className="site-content">{children}</div>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   )

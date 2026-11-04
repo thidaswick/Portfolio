@@ -48,62 +48,50 @@ export default function Skills() {
   ]
 
   return (
-    <section id="skills" className="py-12 sm:py-16 md:py-20 bg-gray-50 dark:bg-slate-900">
-      <div className="container mx-auto px-4 sm:px-6">
+    <section id="skills" className="section-pad bg-[color-mix(in_srgb,var(--bg-muted)_55%,transparent)]">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="mb-14 max-w-2xl"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Skills & <span className="text-primary">Technologies</span>
-          </h2>
-          <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
+          <p className="section-label mb-3">02 — Skills</p>
+          <h2 className="display-title text-4xl sm:text-5xl">Tools I use to ship real products</h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: categoryIndex * 0.2, duration: 0.8 }}
-              className="bg-white dark:bg-slate-800 backdrop-blur-sm p-6 rounded-lg border border-gray-200 dark:border-slate-700 shadow-sm"
+              transition={{ delay: categoryIndex * 0.08, duration: 0.55 }}
+              className="panel p-6"
             >
-              <h3 className="text-xl lg:text-xl font-bold text-gray-900 dark:text-white mb-6 text-center">
-                {category.title}
-              </h3>
-              <div className="space-y-6">
+              <h3 className="mb-6 font-display text-lg font-semibold text-ink">{category.title}</h3>
+              <div className="space-y-5">
                 {category.skills.map((skill, skillIndex) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: skillIndex * 0.1 }}
-                  >
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center space-x-2">
-                        {skill.icon && (
-                          <skill.icon className="text-primary text-lg flex-shrink-0" />
-                        )}
-                        <span className="text-gray-700 dark:text-gray-300 font-medium">{skill.name}</span>
+                  <div key={skill.name}>
+                    <div className="mb-2 flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2">
+                        <skill.icon className="text-accent" />
+                        <span className="text-sm font-medium text-ink-soft">{skill.name}</span>
                       </div>
-                      <span className="text-gray-600 dark:text-gray-400 text-sm">{skill.level}%</span>
+                      <span className="text-xs text-muted">{skill.level}%</span>
                     </div>
-                    <div className="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2">
+                    <div className="h-1.5 w-full overflow-hidden rounded-full bg-surface-muted">
                       <motion.div
-                        className="bg-primary h-2 rounded-full"
+                        className="h-full rounded-full bg-accent"
                         initial={{ width: 0 }}
                         whileInView={{ width: `${skill.level}%` }}
                         viewport={{ once: true }}
-                        transition={{ duration: 1, delay: skillIndex * 0.1 }}
-                      ></motion.div>
+                        transition={{ duration: 0.9, delay: skillIndex * 0.05 }}
+                      />
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </motion.div>
