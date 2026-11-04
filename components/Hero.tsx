@@ -7,7 +7,7 @@ import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaUser } from 'react-icons
 
 export default function Hero() {
   const [imageError, setImageError] = useState(false)
-  const [imageSrc, setImageSrc] = useState('/assets/pp1.jpg')
+  const [imageSrc, setImageSrc] = useState('/assets/pp2.jpg')
   const [isMobile, setIsMobile] = useState(false)
   const [shouldReduceMotion, setShouldReduceMotion] = useState(false)
   const [mounted, setMounted] = useState(false)
@@ -370,8 +370,8 @@ export default function Hero() {
                       borderRadius: '50%',
                     }}
                     onError={() => {
-                      // Try alternative formats if pp1.jpg fails
-                      const formats = ['/assets/pp1.jpg', '/assets/pp1.jpeg', '/assets/pp1.png', '/assets/pp1.JPG']
+                      // Try alternative formats if pp2.jpg fails
+                      const formats = ['/assets/pp2.jpg', '/assets/pp2.jpeg', '/assets/pp2.png', '/assets/pp2.JPG']
                       const currentIndex = formats.indexOf(imageSrc)
                       if (currentIndex < formats.length - 1) {
                         setImageSrc(formats[currentIndex + 1])
