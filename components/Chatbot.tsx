@@ -115,7 +115,7 @@ export default function Chatbot() {
             <div className="flex items-start justify-between gap-3 border-b border-line bg-accent-soft/70 px-4 py-3.5">
               <div>
                 <p className="font-display text-base font-semibold text-ink">Ask Thidas</p>
-                <p className="text-xs text-muted">AI assistant · powered by OpenAI</p>
+                <p className="text-xs text-muted">AI assistant</p>
               </div>
               <button
                 type="button"
