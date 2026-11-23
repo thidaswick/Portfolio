@@ -49,12 +49,11 @@ export default function Projects() {
     {
       title: 'Career Development & Recruitment Framework',
       description:
-        'Final year research project: explainable AI-based career decision-support using multimodal and causal AI. Career Safety and Industry Stability Analysis module in progress.',
+        'Final year research project: explainable AI-based career decision-support using multimodal and causal AI, including Career Safety and Industry Stability Analysis.',
       tech: ['Python', 'Scikit-learn', 'Flask', 'React'],
       techIcons: [SiPython, FaCode],
       category: 'Academic · Final Year Research (2026)',
-      status: 'ongoing' as const,
-      github: null,
+      github: 'https://github.com/thidaswick/career-intelligence-platform.git',
       demo: '#',
     },
     {

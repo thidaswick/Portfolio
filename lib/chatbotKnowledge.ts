@@ -54,7 +54,7 @@ PROJECTS
 - Hostel Management System (internship, no public repo)
 - Agency ERP Management System: https://github.com/thidaswick/AgencySystem.git
 - Enterprise Management Platform: https://github.com/thidaswick/Raxwo-Company-System.git
-- Career Development & Recruitment Framework (final year research, ongoing 2026): Python, Scikit-learn, Flask, React
+- Career Development & Recruitment Framework (final year research, completed 2026): Python, Scikit-learn, Flask, React. GitHub: https://github.com/thidaswick/career-intelligence-platform.git
 - Event Photography & Videography Booking System: https://github.com/thidaswick/Event-booking-system.git
 - Garage ERP System: https://github.com/HaritheW/Yasuki.git
 - CeylonHarvest: https://github.com/thidaswick/Ceylone-Harvest.git
